@@ -1361,4 +1361,198 @@ export const locations: Location[] = [
       },
     },
   },
+  {
+    id: 'embarcadero-bart',
+    name: 'Embarcadero BART',
+    type: 'infrastructure',
+    category: 'Transit',
+    icon: '🚇',
+    color: '#1565c0',
+    coordinates: [-122.3969, 37.7929],
+    content: {
+      title: 'Embarcadero BART Station',
+      tagline: {
+        k2: 'Underground trains that zoom really fast!',
+        grades35: 'Trains that run under the Bay!',
+        grades68: 'Mass transit reducing regional carbon emissions.',
+      },
+      description: {
+        k2: 'BART trains carry people under the water in a special tunnel!',
+        grades35: 'BART trains travel through a tube on the bottom of San Francisco Bay! It\'s one of the longest underwater tunnels in the world.',
+        grades68: 'BART\'s transbay tube spans 3.6 miles beneath the Bay, transporting 400,000+ daily riders on one of the world\'s longest immersed tubes.',
+      },
+      whyItMatters: {
+        k2: 'Trains help keep the air clean by giving people rides!',
+        grades35: 'When people take BART instead of driving, there\'s less pollution and traffic.',
+        grades68: 'Each BART trip displaces an average car journey, reducing per-capita transportation emissions by 40% for riders.',
+      },
+      funFacts: [
+        {
+          k2: 'The train goes 30 feet under the water!',
+          grades35: 'The transbay tube sits in a trench 135 feet below the water\'s surface!',
+          grades68: 'The tube was assembled from 57 prefabricated sections lowered into a dredged trench and joined underwater.',
+        },
+        {
+          k2: 'Electric trains don\'t need gasoline!',
+          grades35: 'BART trains are electric - they get power from a third rail and produce zero exhaust!',
+          grades68: 'BART fleet electrification powered by 100% renewable energy eliminates direct tailpipe emissions.',
+        },
+      ],
+      howItWorks: [
+        {
+          step: 1,
+          title: 'Electric Power',
+          description: {
+            k2: 'Trains get electricity from a special rail.',
+            grades35: 'A third rail beside the track provides 1,000 volts of electricity.',
+            grades68: 'Third-rail DC traction power at 1,000V feeds motors in each car.',
+          },
+        },
+        {
+          step: 2,
+          title: 'The Tube',
+          description: {
+            k2: 'The train goes through a tube under the water.',
+            grades35: 'The transbay tube is a sealed tunnel resting on the Bay floor.',
+            grades68: 'Immersed tube construction placed 57 sections in a dredged trench, with seismic joints allowing movement.',
+          },
+        },
+        {
+          step: 3,
+          title: 'Safety Systems',
+          description: {
+            k2: 'Computers help keep the trains safe.',
+            grades35: 'Automatic systems control train spacing and speed for safety.',
+            grades68: 'ATC (Automatic Train Control) maintains safe headways and emergency ventilation systems provide egress capacity.',
+          },
+        },
+        {
+          step: 4,
+          title: 'Moving People',
+          description: {
+            k2: 'Lots of people ride instead of driving cars.',
+            grades35: 'Thousands of people ride every hour, keeping cars off the roads.',
+            grades68: 'Peak capacity exceeds 25,000 passengers per hour per direction, equivalent to 12 freeway lanes.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Whoosh! This train goes under the Bay!',
+        grades35: 'Taking the train helps keep our air clean!',
+        grades68: 'Public transit is essential infrastructure for sustainable cities.',
+      },
+      takeAction: {
+        k2: 'Take BART on your next adventure!',
+        grades35: 'Encourage your family to try public transit for trips into the city.',
+        grades68: 'Advocate for transit investment and support transit-oriented development policies.',
+      },
+      principles: {
+        primary: 'II',
+        secondary: ['V'],
+        concepts: ['II-B', 'V-A', 'V-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
+    id: 'bay-bridge',
+    name: 'SF-Oakland Bay Bridge',
+    type: 'infrastructure',
+    category: 'Transportation',
+    icon: '🌉',
+    color: '#546e7a',
+    coordinates: [-122.3778, 37.7983],
+    content: {
+      title: 'SF-Oakland Bay Bridge',
+      tagline: {
+        k2: 'A bridge that crosses the whole Bay!',
+        grades35: 'Engineering marvel connecting two cities!',
+        grades68: 'Seismically retrofitted critical transportation infrastructure.',
+      },
+      description: {
+        k2: 'This super long bridge goes all the way across San Francisco Bay!',
+        grades35: 'The Bay Bridge is actually two bridges connected at Yerba Buena Island. The new eastern span was built to survive earthquakes!',
+        grades68: 'The 4.5-mile crossing combines the original 1936 suspension span with a 2013 self-anchored suspension replacement engineered for major seismic events.',
+      },
+      whyItMatters: {
+        k2: 'The bridge helps people get to work and school!',
+        grades35: 'The bridge connects the East Bay to San Francisco - 250,000 vehicles cross every day!',
+        grades68: 'Critical infrastructure resilience ensures economic continuity; the 1989 Loma Prieta earthquake demonstrated seismic vulnerability.',
+      },
+      funFacts: [
+        {
+          k2: 'The bridge is taller than most buildings!',
+          grades35: 'The tower of the new eastern span is 525 feet tall - taller than the Statue of Liberty!',
+          grades68: 'The new east span\'s 525-foot tower supports the world\'s largest self-anchored suspension span at 2,047 feet.',
+        },
+        {
+          k2: 'The bridge lights can change colors!',
+          grades35: 'The Bay Lights art installation uses 25,000 LED lights that can create moving patterns!',
+          grades68: 'The Bay Lights installation, with 25,000 LEDs spanning 1.8 miles, became permanent public art after initial success.',
+        },
+      ],
+      howItWorks: [
+        {
+          step: 1,
+          title: 'Foundation',
+          description: {
+            k2: 'Big posts go deep into the ground under the water.',
+            grades35: 'Huge pilings are driven into the Bay floor to support the bridge.',
+            grades68: 'Foundation piles extend up to 300 feet through Bay mud to reach bedrock.',
+          },
+        },
+        {
+          step: 2,
+          title: 'Towers & Cables',
+          description: {
+            k2: 'Strong towers hold up cables that hold up the road.',
+            grades35: 'Massive towers support cables that hold up the roadway deck.',
+            grades68: 'The main cable comprises 17,399 strands of high-strength steel wire.',
+          },
+        },
+        {
+          step: 3,
+          title: 'Seismic Safety',
+          description: {
+            k2: 'Special parts let the bridge wiggle safely in earthquakes.',
+            grades35: 'The bridge can flex and move during earthquakes without breaking.',
+            grades68: 'Seismic isolation bearings and hinge pipe beams accommodate 6+ feet of differential movement.',
+          },
+        },
+        {
+          step: 4,
+          title: 'Traffic Flow',
+          description: {
+            k2: 'Cars and bikes cross safely every day.',
+            grades35: 'The bridge has lanes for cars plus a bike path on the new span.',
+            grades68: 'Ten traffic lanes plus a pedestrian/cycling path accommodate 250,000+ daily crossings.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Look how long this bridge is! It goes all the way across!',
+        grades35: 'This bridge was rebuilt to survive earthquakes. Smart engineering!',
+        grades68: 'Infrastructure resilience is essential for earthquake-prone regions.',
+      },
+      takeAction: {
+        k2: 'Wave at the boats when you cross the bridge!',
+        grades35: 'Try the bike path on the new eastern span with your family.',
+        grades68: 'Support infrastructure maintenance funding and climate adaptation planning.',
+      },
+      principles: {
+        primary: 'II',
+        secondary: ['V'],
+        concepts: ['II-C', 'V-A'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
 ];
