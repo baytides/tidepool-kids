@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
-import { Location } from '@/types';
+import { Location, AgeLevel } from '@/types';
+import { getContent } from '@/utils/ageContent';
 
 type Tab = 'discover' | 'explore' | 'play';
 
 export function LocationPanel() {
-  const { selectedLocation, selectLocation, collectCreature, collectedCreatures } = useAppStore();
+  const { selectedLocation, selectLocation, collectCreature, collectedCreatures, ageLevel } = useAppStore();
 
   if (!selectedLocation) return null;
 
@@ -20,6 +21,7 @@ export function LocationPanel() {
       selectLocation={selectLocation}
       collectCreature={collectCreature}
       collectedCreatures={collectedCreatures}
+      ageLevel={ageLevel}
     />
   );
 }
@@ -29,11 +31,13 @@ function LocationPanelContent({
   selectLocation,
   collectCreature,
   collectedCreatures,
+  ageLevel,
 }: {
   selectedLocation: Location;
   selectLocation: (location: Location | null) => void;
   collectCreature: (creatureId: string) => void;
   collectedCreatures: string[];
+  ageLevel: AgeLevel | null;
 }) {
   const [activeTab, setActiveTab] = useState<Tab>('discover');
 
@@ -73,7 +77,7 @@ function LocationPanelContent({
               <h2 className="font-[family-name:var(--font-fredoka)] text-2xl text-[var(--color-navy)]">
                 {content.title}
               </h2>
-              <p className="text-gray-500 italic">{content.tagline}</p>
+              <p className="text-gray-500 italic">{getContent(content.tagline, ageLevel)}</p>
             </div>
           </div>
         </div>
@@ -103,27 +107,29 @@ function LocationPanelContent({
                 <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-2">
                   What is this place?
                 </h3>
-                <p className="text-gray-700 leading-relaxed">{content.description}</p>
+                <p className="text-gray-700 leading-relaxed">{getContent(content.description, ageLevel)}</p>
               </section>
 
               <section>
                 <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-2">
                   Why does it matter?
                 </h3>
-                <p className="text-gray-700 leading-relaxed">{content.whyItMatters}</p>
+                <p className="text-gray-700 leading-relaxed">{getContent(content.whyItMatters, ageLevel)}</p>
               </section>
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex gap-4 p-4 bg-amber-50 border border-amber-200 rounded-xl"
-              >
-                <span className="text-2xl">💡</span>
-                <div>
-                  <strong className="text-amber-800">Did you know?</strong>
-                  <p className="text-amber-700 text-sm">{content.didYouKnow}</p>
-                </div>
-              </motion.div>
+              {content.funFacts && content.funFacts.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex gap-4 p-4 bg-amber-50 border border-amber-200 rounded-xl"
+                >
+                  <span className="text-2xl">💡</span>
+                  <div>
+                    <strong className="text-amber-800">Did you know?</strong>
+                    <p className="text-amber-700 text-sm">{getContent(content.funFacts[0], ageLevel)}</p>
+                  </div>
+                </motion.div>
+              )}
             </div>
           )}
 
@@ -153,7 +159,7 @@ function LocationPanelContent({
                         <span className="font-semibold">{creature.name}</span>
                         {isCollected && <span className="text-green-500">✓</span>}
                       </div>
-                      <p className="text-sm text-gray-600">{creature.fact}</p>
+                      <p className="text-sm text-gray-600">{getContent(creature.fact, ageLevel)}</p>
                     </motion.button>
                   );
                 })}
@@ -180,7 +186,7 @@ function LocationPanelContent({
                     </span>
                     <div>
                       <h4 className="font-semibold text-[var(--color-navy)]">{step.title}</h4>
-                      <p className="text-sm text-gray-600">{step.description}</p>
+                      <p className="text-sm text-gray-600">{getContent(step.description, ageLevel)}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -194,7 +200,7 @@ function LocationPanelContent({
               <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
                 {content.activity!.title}
               </h3>
-              <p className="text-gray-600 mb-6">{content.activity!.instructions}</p>
+              <p className="text-gray-600 mb-6">{getContent(content.activity!.instructions, ageLevel)}</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
