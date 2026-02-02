@@ -1,4 +1,4 @@
-import { Location } from '@/types';
+import { Location, QuizData } from '@/types';
 
 export const locations: Location[] = [
   // ===========================
@@ -92,6 +92,78 @@ export const locations: Location[] = [
         k2: 'K-ESS3-3',
         grades35: '5-ESS3-1',
         grades68: 'MS-ESS3-3',
+      },
+      activity: {
+        type: 'quiz',
+        title: 'Tide Pool Quiz',
+        instructions: {
+          k2: 'Answer questions about tide pool animals!',
+          grades35: 'Test your tide pool knowledge with this quiz!',
+          grades68: 'Challenge yourself with questions about intertidal ecosystems.',
+        },
+        points: 20,
+        badge: 'tide-pool-expert',
+        data: {
+          questions: [
+            {
+              question: {
+                k2: 'What do hermit crabs live in?',
+                grades35: 'Why do hermit crabs need to find new shells?',
+                grades68: 'What is the term for the sequential shell exchange behavior of hermit crabs?',
+              },
+              options: [
+                { k2: 'Empty shells', grades35: 'They grow bigger', grades68: 'Vacancy chain' },
+                { k2: 'Sand holes', grades35: 'Their shell breaks', grades68: 'Symbiosis' },
+                { k2: 'Seaweed', grades35: 'They get bored', grades68: 'Metamorphosis' },
+                { k2: 'Rocks', grades35: 'They share with friends', grades68: 'Commensalism' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Hermit crabs find empty shells to live in, like wearing a backpack home!',
+                grades35: 'As hermit crabs grow larger, their shells become too small and they must find bigger ones.',
+                grades68: 'Vacancy chains occur when multiple hermit crabs exchange shells in sequence, often triggered by the availability of a larger shell.',
+              },
+            },
+            {
+              question: {
+                k2: 'How many arms does a sea star usually have?',
+                grades35: 'What happens if a sea star loses an arm?',
+                grades68: 'What cellular process allows sea stars to regenerate lost limbs?',
+              },
+              options: [
+                { k2: 'Five', grades35: 'It grows back', grades68: 'Cellular dedifferentiation' },
+                { k2: 'Two', grades35: 'It dies', grades68: 'Mitosis only' },
+                { k2: 'Ten', grades35: 'Nothing', grades68: 'Meiosis' },
+                { k2: 'Three', grades35: 'It falls off more', grades68: 'Apoptosis' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Sea stars usually have five arms, and they can grow them back if they lose one!',
+                grades35: 'Sea stars can regenerate lost arms, and some can even grow a whole new body from just one arm!',
+                grades68: 'Regeneration in sea stars involves dedifferentiation, where specialized cells revert to stem-like states capable of forming any tissue type.',
+              },
+            },
+            {
+              question: {
+                k2: 'What do sea anemones eat?',
+                grades35: 'How do sea anemones catch their food?',
+                grades68: 'What specialized cells do cnidarians use to capture prey?',
+              },
+              options: [
+                { k2: 'Small fish', grades35: 'Stinging tentacles', grades68: 'Cnidocytes' },
+                { k2: 'Seaweed', grades35: 'Chasing them', grades68: 'Erythrocytes' },
+                { k2: 'Rocks', grades35: 'Asking nicely', grades68: 'Neurons' },
+                { k2: 'Sand', grades35: 'With their feet', grades68: 'Osteocytes' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Sea anemones eat small fish and shrimp that swim too close to their waving arms!',
+                grades35: 'Sea anemones use stinging tentacles to paralyze small fish and shrimp that swim by.',
+                grades68: 'Cnidocytes are specialized cells containing nematocysts - harpoon-like structures that fire neurotoxins to immobilize prey.',
+              },
+            },
+          ],
+        } as QuizData,
       },
     },
   },
@@ -264,6 +336,78 @@ export const locations: Location[] = [
         k2: 'K-ESS3-3',
         grades35: '5-ESS3-1',
         grades68: 'MS-ESS3-3',
+      },
+      activity: {
+        type: 'quiz',
+        title: 'Wetland Quiz',
+        instructions: {
+          k2: 'Answer questions about wetland birds!',
+          grades35: 'Test your wetland knowledge!',
+          grades68: 'Assess your understanding of wetland ecosystems.',
+        },
+        points: 20,
+        badge: 'wetland-watcher',
+        data: {
+          questions: [
+            {
+              question: {
+                k2: 'How far do some birds fly to visit here?',
+                grades35: 'How far do migrating birds travel to Bay Area wetlands?',
+                grades68: 'How many birds use the Pacific Flyway annually?',
+              },
+              options: [
+                { k2: 'Super duper far!', grades35: 'Over 10,000 miles', grades68: 'Approximately 1 billion' },
+                { k2: 'Just a little', grades35: '10 miles', grades68: 'About 1,000' },
+                { k2: 'They don\'t fly', grades35: 'They don\'t migrate', grades68: 'Fewer than 100' },
+                { k2: 'Around the block', grades35: '100 miles', grades68: 'About 1 million' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Some birds fly more than 10,000 miles to visit Bay Area wetlands!',
+                grades35: 'Migrating birds can travel over 10,000 miles along the Pacific Flyway to reach our wetlands.',
+                grades68: 'The Pacific Flyway supports approximately 1 billion birds annually, with SF Bay providing critical stopover habitat.',
+              },
+            },
+            {
+              question: {
+                k2: 'Why are wetlands like sponges?',
+                grades35: 'Why are wetlands called "nature\'s sponges"?',
+                grades68: 'What ecosystem service do wetlands provide regarding water?',
+              },
+              options: [
+                { k2: 'They soak up water', grades35: 'They absorb flood water', grades68: 'Flood mitigation and water filtration' },
+                { k2: 'They\'re yellow', grades35: 'They\'re soft', grades68: 'Carbon emission only' },
+                { k2: 'They have holes', grades35: 'They smell funny', grades68: 'Heat generation' },
+                { k2: 'They bounce', grades35: 'They float', grades68: 'Oxygen depletion' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Wetlands soak up extra water like a sponge, which helps stop flooding!',
+                grades35: 'Wetlands absorb excess water during storms and filter pollutants naturally.',
+                grades68: 'Wetlands provide flood mitigation by storing excess water and biofiltering pollutants before they reach larger water bodies.',
+              },
+            },
+            {
+              question: {
+                k2: 'How does the egret catch fish?',
+                grades35: 'How do egrets hunt for fish?',
+                grades68: 'What hunting strategy do egrets employ?',
+              },
+              options: [
+                { k2: 'Standing very still', grades35: 'Stand-and-wait ambush', grades68: 'Sit-and-wait predation strategy' },
+                { k2: 'Running fast', grades35: 'Chasing them', grades68: 'Active pursuit hunting' },
+                { k2: 'Using a fishing rod', grades35: 'Using nets', grades68: 'Tool-assisted capture' },
+                { k2: 'Asking nicely', grades35: 'Calling them', grades68: 'Acoustic luring' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Egrets stand super still in the water, then snap up fish really fast!',
+                grades35: 'Egrets use a stand-and-wait strategy, remaining motionless until prey comes within strike distance.',
+                grades68: 'Egrets employ sit-and-wait predation, with strike speeds under 0.05 seconds and success rates 300% higher than active foraging.',
+              },
+            },
+          ],
+        } as QuizData,
       },
     },
   },
@@ -690,6 +834,78 @@ export const locations: Location[] = [
         grades35: '5-ESS3-1',
         grades68: 'MS-ESS3-3',
       },
+      activity: {
+        type: 'quiz',
+        title: 'Redwood Forest Quiz',
+        instructions: {
+          k2: 'Answer questions about the big trees!',
+          grades35: 'Test your redwood knowledge!',
+          grades68: 'Challenge yourself with questions about old-growth ecosystems.',
+        },
+        points: 20,
+        badge: 'forest-ranger',
+        data: {
+          questions: [
+            {
+              question: {
+                k2: 'How do redwood trees drink fog?',
+                grades35: 'How do redwoods get water from fog?',
+                grades68: 'What percentage of redwood water intake can come from fog?',
+              },
+              options: [
+                { k2: 'Through their needles', grades35: 'Through their leaves', grades68: 'Up to 40%' },
+                { k2: 'With a straw', grades35: 'By flying up', grades68: 'Less than 5%' },
+                { k2: 'They don\'t', grades35: 'They can\'t', grades68: 'Exactly 100%' },
+                { k2: 'Through their bark', grades35: 'Through their trunk', grades68: 'About 80%' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Redwoods can drink water right through their needles when fog rolls in!',
+                grades35: 'Redwood trees can absorb water through their leaves - fog drip provides water during dry summers.',
+                grades68: 'Fog drip can contribute up to 40% of water intake during summer months via foliar uptake through stomata.',
+              },
+            },
+            {
+              question: {
+                k2: 'What does the banana slug eat?',
+                grades35: 'Why are banana slugs important for the forest?',
+                grades68: 'What ecological role do banana slugs play in redwood forests?',
+              },
+              options: [
+                { k2: 'Dead leaves', grades35: 'They recycle dead plants', grades68: 'Decomposer accelerating nutrient cycling' },
+                { k2: 'Bananas', grades35: 'They eat trees', grades68: 'Primary producer' },
+                { k2: 'Other slugs', grades35: 'They make oxygen', grades68: 'Apex predator' },
+                { k2: 'Bugs', grades35: 'They plant seeds', grades68: 'Nitrogen fixer' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Banana slugs eat dead leaves and plants, turning them into food for the soil!',
+                grades35: 'Banana slugs are nature\'s recyclers - they break down dead plants into nutrients the trees can use.',
+                grades68: 'As decomposers, banana slugs accelerate nutrient cycling by breaking down organic matter and making nutrients available to plants.',
+              },
+            },
+            {
+              question: {
+                k2: 'How old can redwood trees be?',
+                grades35: 'How long can coast redwoods live?',
+                grades68: 'What is the approximate maximum age of Sequoia sempervirens?',
+              },
+              options: [
+                { k2: 'Over 1,000 years', grades35: 'Over 2,000 years', grades68: 'Over 2,000 years' },
+                { k2: '10 years', grades35: '100 years', grades68: '500 years maximum' },
+                { k2: '50 years', grades35: '500 years', grades68: '100 years maximum' },
+                { k2: '100 years', grades35: '50 years', grades68: '50 years maximum' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Some redwood trees have been growing for over 1,000 years - older than any castle!',
+                grades35: 'Coast redwoods can live more than 2,000 years, making them among the oldest living things on Earth.',
+                grades68: 'Individual Sequoia sempervirens specimens have been dated to over 2,000 years old through ring counting and radiocarbon dating.',
+              },
+            },
+          ],
+        } as QuizData,
+      },
     },
   },
   {
@@ -971,6 +1187,78 @@ export const locations: Location[] = [
         grades35: '5-ESS3-1',
         grades68: 'MS-ESS3-3',
       },
+      activity: {
+        type: 'quiz',
+        title: 'Water Treatment Quiz',
+        instructions: {
+          k2: 'Learn how we clean water!',
+          grades35: 'Test what you know about water treatment!',
+          grades68: 'Assess your knowledge of wastewater treatment processes.',
+        },
+        points: 20,
+        badge: 'water-wizard',
+        data: {
+          questions: [
+            {
+              question: {
+                k2: 'What eats the bad stuff in water treatment?',
+                grades35: 'What helps clean the water in treatment plants?',
+                grades68: 'What type of organisms are used in activated sludge processes?',
+              },
+              options: [
+                { k2: 'Tiny bacteria', grades35: 'Helpful bacteria', grades68: 'Aerobic microorganisms' },
+                { k2: 'Fish', grades35: 'Big fish', grades68: 'Anaerobic fish' },
+                { k2: 'Birds', grades35: 'Cleaning robots', grades68: 'Photosynthetic algae only' },
+                { k2: 'Dolphins', grades35: 'Magic crystals', grades68: 'Viral particles' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Tiny helpful bacteria eat the yucky stuff in water to make it clean!',
+                grades35: 'Bacteria in treatment tanks digest waste naturally - they\'re nature\'s cleanup crew!',
+                grades68: 'Activated sludge processes use diverse aerobic microbial communities to metabolize organic compounds through oxidation.',
+              },
+            },
+            {
+              question: {
+                k2: 'Where does the clean water go after treatment?',
+                grades35: 'What happens to water after it\'s treated?',
+                grades68: 'What permit governs treated wastewater discharge?',
+              },
+              options: [
+                { k2: 'Back to the Bay', grades35: 'Released to the Bay', grades68: 'NPDES permit' },
+                { k2: 'Up to the clouds', grades35: 'Sent to space', grades68: 'FDA approval' },
+                { k2: 'Into the ground', grades35: 'Bottled and sold', grades68: 'OSHA permit' },
+                { k2: 'To the mountains', grades35: 'Frozen into ice', grades68: 'EPA waiver' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'After we clean the water, it flows safely back into San Francisco Bay!',
+                grades35: 'Treated water is released back into the Bay where it\'s safe for fish and wildlife.',
+                grades68: 'The National Pollutant Discharge Elimination System (NPDES) permit sets strict standards for effluent quality.',
+              },
+            },
+            {
+              question: {
+                k2: 'What should we NOT flush down the toilet?',
+                grades35: 'What causes problems for treatment plants?',
+                grades68: 'What items should never enter the sewer system?',
+              },
+              options: [
+                { k2: 'Wipes and toys', grades35: 'Wipes and grease', grades68: 'Non-biodegradable materials and FOG' },
+                { k2: 'Water', grades35: 'Toilet paper', grades68: 'Human waste only' },
+                { k2: 'Toilet paper', grades35: 'Water', grades68: 'Biodegradable soap' },
+                { k2: 'Nothing bad', grades35: 'Nothing', grades68: 'Dilute solutions' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Only flush toilet paper! Wipes and toys can clog the pipes.',
+                grades35: 'Wipes, grease, and other items can clog pipes and damage treatment equipment.',
+                grades68: 'FOG (fats, oils, grease) and non-biodegradable materials cause blockages and equipment damage, requiring costly remediation.',
+              },
+            },
+          ],
+        } as QuizData,
+      },
     },
   },
   {
@@ -1067,6 +1355,78 @@ export const locations: Location[] = [
         k2: 'K-ESS3-3',
         grades35: '5-ESS3-1',
         grades68: 'MS-ESS3-3',
+      },
+      activity: {
+        type: 'quiz',
+        title: 'Recycling Quiz',
+        instructions: {
+          k2: 'Learn about recycling!',
+          grades35: 'Test your recycling knowledge!',
+          grades68: 'Assess your understanding of material recovery processes.',
+        },
+        points: 20,
+        badge: 'recycling-hero',
+        data: {
+          questions: [
+            {
+              question: {
+                k2: 'Recycling one can saves enough energy to...',
+                grades35: 'How much energy does recycling aluminum save?',
+                grades68: 'What percentage of energy is saved by recycling aluminum vs. primary production?',
+              },
+              options: [
+                { k2: 'Run a TV for 3 hours', grades35: '95% of the energy', grades68: '95% (requires only 5% of primary energy)' },
+                { k2: 'Nothing', grades35: '10% of the energy', grades68: '10%' },
+                { k2: 'Light a candle', grades35: '50% of the energy', grades68: '50%' },
+                { k2: 'Heat a pool', grades35: 'No energy saved', grades68: '0% (no savings)' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Recycling just one aluminum can saves enough energy to run your TV for 3 hours!',
+                grades35: 'Recycling aluminum saves 95% of the energy needed to make new aluminum from raw materials.',
+                grades68: 'Aluminum recycling requires only 5% of the energy needed for primary production from bauxite ore.',
+              },
+            },
+            {
+              question: {
+                k2: 'What helps sort recycling really fast?',
+                grades35: 'What technology helps sort recyclables?',
+                grades68: 'What technology enables high-speed material identification in MRFs?',
+              },
+              options: [
+                { k2: 'Robots with cameras', grades35: 'AI-powered optical sorters', grades68: 'Near-infrared optical sorters' },
+                { k2: 'Magic', grades35: 'Magic wands', grades68: 'Manual sorting only' },
+                { k2: 'Wizards', grades35: 'X-ray vision', grades68: 'Magnetic separation only' },
+                { k2: 'Elves', grades35: 'Sound waves', grades68: 'Gravity separation only' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Smart robots with cameras can sort recycling faster than people!',
+                grades35: 'AI-powered robots use cameras and machine learning to identify and sort materials at high speed.',
+                grades68: 'Near-infrared optical sorters identify material composition spectroscopically, enabling automated sorting of 80+ material types.',
+              },
+            },
+            {
+              question: {
+                k2: 'What happens to recycled bottles?',
+                grades35: 'Where do baled recyclables go?',
+                grades68: 'What is the destination for processed recyclable commodities?',
+              },
+              options: [
+                { k2: 'They become new things', grades35: 'To manufacturers for new products', grades68: 'Secondary commodity markets' },
+                { k2: 'They disappear', grades35: 'To the dump', grades68: 'Primary landfills' },
+                { k2: 'They go to space', grades35: 'To the ocean', grades68: 'Ocean disposal' },
+                { k2: 'Nothing', grades35: 'They stay forever', grades68: 'Indefinite storage' },
+              ],
+              correctIndex: 0,
+              explanation: {
+                k2: 'Recycled bottles and cans become new products like toys, clothes, and more bottles!',
+                grades35: 'Baled recyclables are sold to manufacturers who turn them into new products.',
+                grades68: 'Processed materials enter secondary commodity markets where they are purchased by manufacturers for reprocessing.',
+              },
+            },
+          ],
+        } as QuizData,
       },
     },
   },
