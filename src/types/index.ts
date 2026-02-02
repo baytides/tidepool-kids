@@ -32,11 +32,60 @@ export interface Step {
   icon?: string;
 }
 
+/**
+ * Quiz activity data structure
+ */
+export interface QuizQuestion {
+  question: AgeContent;
+  options: AgeContent[];
+  correctIndex: number;
+  explanation: AgeContent;
+}
+
+export interface QuizData {
+  questions: QuizQuestion[];
+}
+
+/**
+ * Sorting activity data structure
+ */
+export interface SortingBin {
+  id: string;
+  label: string;
+  icon: string;
+}
+
+export interface SortingItem {
+  id: string;
+  label: string;
+  emoji: string;
+  correctBin: string;
+}
+
+export interface SortingData {
+  bins: SortingBin[];
+  items: SortingItem[];
+}
+
+/**
+ * Matching activity data structure
+ */
+export interface MatchingPair {
+  id: string;
+  left: string;
+  right: string;
+  emoji?: string;
+}
+
+export interface MatchingData {
+  pairs: MatchingPair[];
+}
+
 export interface Activity {
   type: 'spotter' | 'matching' | 'sorting' | 'quiz' | 'sequencer' | 'data';
   title: string;
   instructions: AgeContent;
-  data: unknown;
+  data: QuizData | SortingData | MatchingData | unknown;
   points: number;
   badge?: string;
 }
