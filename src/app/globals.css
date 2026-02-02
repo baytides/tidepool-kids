@@ -1,5 +1,39 @@
 @import "tailwindcss";
 
+/* No-scroll viewport layout */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-navy);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 :root {
   /* Fun, vibrant color palette */
   --color-navy: #1a237e;
