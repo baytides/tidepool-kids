@@ -708,8 +708,49 @@ Key deliverables:
 - **Grade-level performance expectation mapping**
 - **"Take Action" prompts for environmental stewardship**
 
+### Public Resources Code Section 71301 Compliance
+
+Per California Public Resources Code Section 71301, environmental principles must address 14 specific topic areas. Tide Pool Kids content coverage:
+
+| Required Topic | Coverage in Tide Pool Kids |
+|---------------|---------------------------|
+| Air quality | Transportation locations (BART, bridge - emissions reduction) |
+| Climate change | Sea level rise content (seawall, levees), carbon sequestration (wetlands, forests) |
+| Energy | Water treatment (energy use), BART (electric transit), Hetch Hetchy (hydroelectric) |
+| Environmental justice | Infrastructure equity discussions in 6-8 content |
+| Sustainability | Recycling, composting, water conservation throughout |
+| Wildlife | All 10 nature locations with 40+ species |
+| Forestry | Muir Woods, Redwood Regional Park |
+| Pest management | Integrated into agricultural content where applicable |
+| Oceans | Tide pools, beaches, Aquarium of the Bay |
+| Pollution prevention | Water treatment, recycling, composting, stormwater |
+| Public health | Water quality, air quality, clean beaches |
+| Resource conservation | Water (Hetch Hetchy), energy (BART), materials (recycling) |
+| Toxics | Water treatment processes, proper disposal in recycling content |
+| Water | Hetch Hetchy, water treatment, stormwater, wetlands |
+
+### California Curriculum Frameworks
+
+Per the California Department of Education, curriculum frameworks provide guidance for implementing content standards. Tide Pool Kids aligns with:
+
+- **Science Framework**: Next Generation Science Standards integration, particularly Earth and Space Sciences
+- **History-Social Science Framework**: Geographic and civic content for grades 4 and 6
+- **Health Framework**: Environmental health connections
+
+### California Academic Content Standards
+
+Tide Pool Kids supports California's content standards search application resources, particularly:
+- **K-2 Science**: Students observe and describe characteristics of living things and their environments
+- **3-5 Science**: Students understand ecosystems and human impacts on environments
+- **6-8 Science**: Students analyze Earth systems and design solutions to environmental challenges
+
+---
+
 Sources:
 - [California Environmental Principles and Concepts](https://www.cde.ca.gov/ci/sc/ee/)
 - [California EEI Curriculum](https://www.californiaeei.org/epc/)
 - [Environmental Literacy Blueprint](https://www.cde.ca.gov/ci/pl/environliteracyblueprint.asp)
 - [CREEC Region 4 (Bay Area)](https://www.creec.org/Home/Region/4)
+- [California Academic Content Standards](https://www.cde.ca.gov/be/st/ss/index.asp)
+- [California Curriculum Frameworks](https://www.cde.ca.gov/ci/cr/cf/index.asp)
+- [Public Resources Code Section 71301](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=71301&lawCode=PRC)
