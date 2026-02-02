@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { locations } from '@/data/locations';
 import { useAppStore } from '@/store/useAppStore';
+import { FloatingBubbles, SwimmingFish } from './Confetti';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
@@ -114,19 +115,83 @@ export function Map() {
   }, [selectedLocation?.id]);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full overflow-hidden">
       {mapError ? (
-        // Fallback when map fails to load
-        <div className="w-full h-full bg-gradient-to-br from-blue-100 to-teal-50 flex items-center justify-center">
-          <div className="text-center p-8">
-            <div className="text-6xl mb-4">🗺️</div>
-            <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
-              Explore the Bay Area
-            </h3>
-            <p className="text-sm text-gray-600 max-w-xs">
-              Select a location from the sidebar to learn about amazing places!
-            </p>
+        // Fun animated fallback when map fails to load
+        <div className="w-full h-full bg-gradient-to-br from-blue-200 via-cyan-100 to-teal-100 flex items-center justify-center relative">
+          {/* Animated background elements */}
+          <FloatingBubbles count={15} />
+          <SwimmingFish />
+
+          {/* Waves at the bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden">
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 h-24"
+              style={{
+                background: 'linear-gradient(180deg, transparent 0%, rgba(38, 198, 218, 0.3) 100%)',
+              }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            />
           </div>
+
+          {/* Main content */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center p-8 relative z-10"
+          >
+            {/* Animated map icon */}
+            <motion.div
+              className="text-8xl mb-6"
+              animate={{
+                y: [0, -15, 0],
+                rotate: [0, -5, 5, 0],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              🗺️
+            </motion.div>
+
+            <motion.h3
+              className="font-[family-name:var(--font-fredoka)] text-3xl text-[var(--color-navy)] mb-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Explore the Bay Area!
+            </motion.h3>
+
+            <motion.p
+              className="text-lg text-gray-600 max-w-xs mx-auto mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Pick a spot from the Adventure Map to start your journey!
+            </motion.p>
+
+            {/* Animated creatures */}
+            <div className="flex justify-center gap-4 mt-4">
+              {['🦀', '🐠', '🐙', '🦈', '🐚'].map((emoji, i) => (
+                <motion.span
+                  key={i}
+                  className="text-3xl"
+                  animate={{
+                    y: [0, -10, 0],
+                    rotate: [0, 10, -10, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                  }}
+                >
+                  {emoji}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
         </div>
       ) : (
         <div ref={mapContainer} className="w-full h-full" />
@@ -135,26 +200,61 @@ export function Map() {
       <AnimatePresence>
         {!selectedLocation && !mapError && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 max-w-sm"
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.9 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-2xl p-6 flex items-center gap-4 max-w-sm border-4 border-[var(--color-aqua)]"
           >
-            <motion.img
-              src="/assets/images/crab-mascot.png"
-              alt="Coral"
-              width={64}
-              height={64}
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-            />
+            {/* Animated mascot */}
+            <motion.div className="relative">
+              <motion.img
+                src="/assets/images/crab-mascot.png"
+                alt="Coral"
+                width={80}
+                height={80}
+                animate={{
+                  y: [0, -8, 0],
+                  rotate: [0, -5, 5, 0],
+                }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              />
+              {/* Speech bubble indicator */}
+              <motion.div
+                className="absolute -top-2 -right-2 w-6 h-6 bg-[var(--color-sunny)] rounded-full flex items-center justify-center text-sm"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 1 }}
+              >
+                💬
+              </motion.div>
+            </motion.div>
+
             <div>
-              <h2 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)]">
+              <motion.h2
+                className="font-[family-name:var(--font-fredoka)] text-2xl text-[var(--color-navy)] mb-1"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 Hi, I&apos;m Coral!
-              </h2>
-              <p className="text-sm text-gray-600">
-                Tap a pin to explore the Bay with me!
-              </p>
+              </motion.h2>
+              <motion.p
+                className="text-sm text-gray-600"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                Tap a pin to explore the Bay with me! 🌊
+              </motion.p>
+
+              {/* Animated hint */}
+              <motion.div
+                className="flex items-center gap-1 mt-2 text-xs text-[var(--color-aqua)]"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+              >
+                <span>Click a location</span>
+                <span>→</span>
+              </motion.div>
             </div>
           </motion.div>
         )}
@@ -162,4 +262,3 @@ export function Map() {
     </div>
   );
 }
-

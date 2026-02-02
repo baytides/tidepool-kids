@@ -129,6 +129,10 @@ interface AppState {
   currentStreak: number;
   recordVisit: () => void;
 
+  // Sound settings
+  soundEnabled: boolean;
+  toggleSound: () => void;
+
   // Reset for testing
   resetProgress: () => void;
 }
@@ -261,6 +265,13 @@ export const useAppStore = create<AppState>()(
           };
         }),
 
+      // Sound settings
+      soundEnabled: true,
+      toggleSound: () =>
+        set((state) => ({
+          soundEnabled: !state.soundEnabled,
+        })),
+
       // Reset for testing
       resetProgress: () =>
         set({
@@ -275,6 +286,7 @@ export const useAppStore = create<AppState>()(
           badges: [],
           lastVisitDate: null,
           currentStreak: 0,
+          soundEnabled: true,
         }),
     }),
     {
@@ -292,6 +304,7 @@ export const useAppStore = create<AppState>()(
         badges: state.badges,
         lastVisitDate: state.lastVisitDate,
         currentStreak: state.currentStreak,
+        soundEnabled: state.soundEnabled,
       }),
     }
   )

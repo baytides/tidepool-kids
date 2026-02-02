@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { AgeLevel } from '@/types';
+import { motion } from 'framer-motion';
 import { getContent } from '@/utils/ageContent';
 import { useAppStore } from '@/store/useAppStore';
 
@@ -11,7 +10,7 @@ interface CoralDialogueProps {
     grades35: string;
     grades68: string;
   };
-  variant?: 'speech' | 'thought' | 'excited';
+  variant?: 'speech' | 'thought' | 'excited' | 'encouraging' | 'celebrating';
   onClose?: () => void;
   showClose?: boolean;
 }
@@ -25,55 +24,164 @@ export function CoralDialogue({
   const { ageLevel } = useAppStore();
   const text = getContent(message, ageLevel);
 
-  // Personality emojis by age level
+  // Personality emojis by variant
   const getEmoji = () => {
-    if (variant === 'excited') {
-      switch (ageLevel) {
-        case 'k2': return '🎉';
-        case 'grades35': return '⭐';
-        case 'grades68': return '✨';
-        default: return '⭐';
-      }
+    switch (variant) {
+      case 'excited': return '🎉';
+      case 'encouraging': return '💪';
+      case 'celebrating': return '🏆';
+      case 'thought': return '💭';
+      default: return '';
     }
-    return '';
   };
 
-  const bgColor = {
-    speech: 'bg-[var(--color-sand)]',
-    thought: 'bg-blue-50',
-    excited: 'bg-gradient-to-r from-amber-100 to-orange-100',
-  }[variant];
+  // Animation styles by variant
+  const getCoralAnimation = () => {
+    switch (variant) {
+      case 'excited':
+      case 'celebrating':
+        return {
+          y: [0, -8, 0],
+          rotate: [0, -10, 10, 0],
+          scale: [1, 1.1, 1]
+        };
+      case 'encouraging':
+        return {
+          y: [0, -5, 0],
+          rotate: [0, 5, -5, 0]
+        };
+      case 'thought':
+        return {
+          y: [0, -3, 0]
+        };
+      default:
+        return {
+          rotate: [0, -3, 3, 0]
+        };
+    }
+  };
 
-  const borderStyle = {
-    speech: 'border-l-4 border-[var(--color-coral)]',
-    thought: 'border-l-4 border-[var(--color-aqua)]',
-    excited: 'border-2 border-amber-300',
-  }[variant];
+  const variantStyles = {
+    speech: {
+      bg: 'bg-gradient-to-r from-[var(--color-sand)] to-amber-50',
+      border: 'border-l-4 border-[var(--color-coral)]',
+      text: 'text-gray-700'
+    },
+    thought: {
+      bg: 'bg-gradient-to-r from-blue-50 to-cyan-50',
+      border: 'border-l-4 border-[var(--color-aqua)]',
+      text: 'text-[var(--color-navy)]'
+    },
+    excited: {
+      bg: 'bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100',
+      border: 'border-2 border-[var(--color-sunny)]',
+      text: 'text-amber-900 font-medium'
+    },
+    encouraging: {
+      bg: 'bg-gradient-to-r from-green-50 to-emerald-50',
+      border: 'border-l-4 border-green-400',
+      text: 'text-green-800'
+    },
+    celebrating: {
+      bg: 'bg-gradient-to-r from-purple-100 via-pink-100 to-rose-100',
+      border: 'border-2 border-purple-300',
+      text: 'text-purple-900 font-bold'
+    }
+  };
+
+  const style = variantStyles[variant];
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.95 }}
-      className={`flex items-start gap-3 p-4 rounded-xl ${bgColor} ${borderStyle} relative`}
+      whileHover={{ scale: 1.02 }}
+      className={`flex items-start gap-4 p-4 rounded-2xl ${style.bg} ${style.border} relative shadow-md overflow-hidden`}
     >
-      <img
-        src="/assets/images/crab-mascot.png"
-        alt="Coral"
-        className="w-12 h-12 flex-shrink-0"
-      />
-      <div className="flex-1">
-        <p className={`text-sm ${variant === 'excited' ? 'font-medium text-amber-900' : 'text-gray-700'}`}>
-          {getEmoji()} {text}
-        </p>
+      {/* Decorative elements for exciting variants */}
+      {(variant === 'excited' || variant === 'celebrating') && (
+        <>
+          <motion.span
+            className="absolute top-2 right-8 text-lg opacity-40"
+            animate={{ rotate: [0, 360], scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            ✨
+          </motion.span>
+          <motion.span
+            className="absolute bottom-2 right-4 text-sm opacity-30"
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          >
+            ⭐
+          </motion.span>
+        </>
+      )}
+
+      {/* Coral mascot with animation */}
+      <motion.div
+        className="relative flex-shrink-0"
+        animate={getCoralAnimation()}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <img
+          src="/assets/images/crab-mascot.png"
+          alt="Coral"
+          className="w-14 h-14 drop-shadow-md"
+        />
+        {/* Speech indicator bubble */}
+        {variant === 'speech' && (
+          <motion.div
+            className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center text-xs shadow-sm border border-gray-200"
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            💬
+          </motion.div>
+        )}
+        {variant === 'thought' && (
+          <motion.div
+            className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center text-xs shadow-sm border border-gray-200"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            💭
+          </motion.div>
+        )}
+      </motion.div>
+
+      {/* Message content */}
+      <div className="flex-1 pt-1">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className={`text-sm leading-relaxed ${style.text}`}
+        >
+          {getEmoji() && (
+            <motion.span
+              className="inline-block mr-1"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 0.5, repeat: 3 }}
+            >
+              {getEmoji()}
+            </motion.span>
+          )}
+          {text}
+        </motion.p>
       </div>
+
+      {/* Close button */}
       {showClose && onClose && (
-        <button
+        <motion.button
           onClick={onClose}
-          className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-gray-200/50 hover:bg-gray-200 text-gray-500 text-xs"
+          whileHover={{ scale: 1.1, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-white/80 hover:bg-white text-gray-500 text-xs shadow-sm"
         >
           ✕
-        </button>
+        </motion.button>
       )}
     </motion.div>
   );

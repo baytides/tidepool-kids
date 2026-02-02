@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  /* Fun, vibrant color palette */
   --color-navy: #1a237e;
   --color-navy-light: #3949ab;
   --color-lime: #7cb342;
@@ -9,6 +10,10 @@
   --color-aqua: #26c6da;
   --color-aqua-dark: #00838f;
   --color-sand: #fff8e1;
+  --color-coral: #ff6b6b;
+  --color-sunny: #ffd93d;
+  --color-purple: #9b59b6;
+  --color-teal: #1abc9c;
 
   --font-body: var(--font-nunito), system-ui, sans-serif;
   --font-display: var(--font-fredoka), system-ui, sans-serif;
@@ -16,9 +21,322 @@
 
 body {
   font-family: var(--font-body);
-  background: #f8fafc;
+  background: linear-gradient(180deg, #e3f2fd 0%, #f8fafc 100%);
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
+}
+
+/* Fun Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(2deg); }
+  75% { transform: translateY(5px) rotate(-2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(38, 198, 218, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(38, 198, 218, 0.8), 0 0 30px rgba(38, 198, 218, 0.4); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes swim {
+  0%, 100% { transform: translateX(0) scaleX(1); }
+  25% { transform: translateX(10px) scaleX(1); }
+  50% { transform: translateX(0) scaleX(-1); }
+  75% { transform: translateX(-10px) scaleX(-1); }
+}
+
+@keyframes bubble-rise {
+  0% { transform: translateY(100%) scale(0.5); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100%) scale(1); opacity: 0; }
+}
+
+/* Animation utility classes */
+.animate-bounce-slow {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-swim {
+  animation: swim 4s ease-in-out infinite;
+}
+
+/* Cartoonish button styles */
+.btn-cartoon {
+  position: relative;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.2),
+    0 6px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.1s ease;
+}
+
+.btn-cartoon:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 rgba(0, 0, 0, 0.2),
+    0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cartoon:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.2),
+    0 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Cartoonish card styles */
+.card-cartoon {
+  background: white;
+  border-radius: 1.5rem;
+  border: 3px solid #e0e0e0;
+  box-shadow:
+    0 4px 0 #d0d0d0,
+    0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.card-cartoon:hover {
+  transform: translateY(-4px) rotate(1deg);
+  box-shadow:
+    0 8px 0 #d0d0d0,
+    0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Fun emoji icons with hover effects */
+.emoji-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.emoji-icon:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* Progress bar with gradient */
+.progress-bar-fun {
+  background: linear-gradient(90deg,
+    var(--color-aqua) 0%,
+    var(--color-lime) 50%,
+    var(--color-sunny) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbow 3s linear infinite;
+  border-radius: 9999px;
+}
+
+/* Bubble decoration */
+.bubble {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(38, 198, 218, 0.3));
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Star burst effect */
+.star-burst::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Wavy text effect */
+.wavy-text span {
+  display: inline-block;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.wavy-text span:nth-child(2) { animation-delay: 0.1s; }
+.wavy-text span:nth-child(3) { animation-delay: 0.2s; }
+.wavy-text span:nth-child(4) { animation-delay: 0.3s; }
+.wavy-text span:nth-child(5) { animation-delay: 0.4s; }
+
+/* Location card fun hover */
+.location-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.location-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.location-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* Fun scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-aqua), var(--color-teal));
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-aqua-dark), var(--color-navy-light));
+}
+
+/* Creature card with bounce on collect */
+.creature-card {
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.creature-card.collected {
+  animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Quiz option fun styling */
+.quiz-option {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+  transform: scale(1.02);
+}
+
+.quiz-option.correct {
+  animation: pop-in 0.4s ease, pulse-glow 1s ease-in-out infinite;
+  background: linear-gradient(135deg, #4ade80, #22c55e) !important;
+}
+
+.quiz-option.incorrect {
+  animation: shake 0.5s ease;
+  background: linear-gradient(135deg, #f87171, #ef4444) !important;
+}
+
+/* XP bar styling */
+.xp-bar-container {
+  position: relative;
+  height: 20px;
+  background: linear-gradient(180deg, #e0e0e0, #f5f5f5);
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd93d, #ff9f43, #ff6b6b);
+  border-radius: 8px;
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 0 10px rgba(255, 217, 61, 0.5);
+}
+
+.xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Level badge */
+.level-badge {
+  background: linear-gradient(135deg, #ffd93d, #ff9f43);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 0 #e67e22, 0 6px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 800;
 }

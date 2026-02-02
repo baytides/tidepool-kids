@@ -15,16 +15,24 @@ export function BadgeDisplay() {
   return (
     <>
       {/* Trigger button */}
-      <button
+      <motion.button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-1 px-3 py-1.5 bg-[var(--color-sand)] rounded-full hover:bg-[var(--color-sand)]/80 transition-colors"
+        whileHover={{ scale: 1.08, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full border-2 border-purple-300/50 shadow-sm hover:shadow-md transition-shadow"
         title={`${earnedCount} badges earned`}
       >
-        <span className="text-lg">🏅</span>
-        <span className="text-sm font-medium text-[var(--color-navy)]">
+        <motion.span
+          className="text-lg"
+          animate={{ rotate: [0, -10, 10, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          🏅
+        </motion.span>
+        <span className="text-sm font-bold text-purple-700">
           {earnedCount}/{allBadges.length}
         </span>
-      </button>
+      </motion.button>
 
       {/* Modal */}
       <AnimatePresence>
@@ -47,62 +55,112 @@ export function BadgeDisplay() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-2xl shadow-2xl z-50 max-h-[80vh] overflow-hidden"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-gradient-to-b from-white to-purple-50 rounded-3xl shadow-2xl z-50 max-h-[80vh] overflow-hidden border-4 border-purple-200"
             >
               {/* Header */}
-              <div className="p-6 border-b border-gray-100">
+              <div className="p-6 border-b-2 border-dashed border-purple-200 bg-gradient-to-r from-purple-100 via-pink-100 to-amber-100">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="font-[family-name:var(--font-fredoka)] text-2xl text-[var(--color-navy)]">
-                      Your Badges
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                      {earnedCount} of {allBadges.length} earned
-                    </p>
+                  <div className="flex items-center gap-3">
+                    <motion.span
+                      className="text-4xl"
+                      animate={{ rotate: [0, -10, 10, 0], y: [0, -5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      🏆
+                    </motion.span>
+                    <div>
+                      <h2 className="font-[family-name:var(--font-fredoka)] text-2xl text-[var(--color-navy)]">
+                        Your Badges
+                      </h2>
+                      <div className="flex items-center gap-2">
+                        <div className="flex-1 bg-white/50 rounded-full h-2 w-24 overflow-hidden">
+                          <motion.div
+                            className="h-full bg-gradient-to-r from-purple-400 to-pink-400"
+                            initial={{ width: 0 }}
+                            animate={{ width: `${(earnedCount / allBadges.length) * 100}%` }}
+                            transition={{ duration: 0.5 }}
+                          />
+                        </div>
+                        <p className="text-sm font-bold text-purple-700">
+                          {earnedCount}/{allBadges.length}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <button
+                  <motion.button
                     onClick={() => {
                       setIsOpen(false);
                       setSelectedBadge(null);
                     }}
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200"
+                    whileHover={{ scale: 1.1, rotate: 90 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg text-gray-500"
                   >
                     ✕
-                  </button>
+                  </motion.button>
                 </div>
               </div>
 
               {/* Badge grid */}
               <div className="p-6 overflow-y-auto max-h-[60vh]">
                 <div className="grid grid-cols-3 gap-4">
-                  {allBadges.map((badge) => {
+                  {allBadges.map((badge, index) => {
                     const isEarned = badges.includes(badge.id as BadgeId);
                     const isSelected = selectedBadge === badge.id;
 
                     return (
                       <motion.button
                         key={badge.id}
-                        whileHover={{ scale: 1.05 }}
+                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{ delay: index * 0.05, type: 'spring' }}
+                        whileHover={{ scale: 1.1, y: -5 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setSelectedBadge(isSelected ? null : badge.id as BadgeId)}
-                        className={`flex flex-col items-center p-4 rounded-xl transition-colors ${
+                        className={`relative flex flex-col items-center p-4 rounded-2xl transition-all shadow-sm hover:shadow-lg ${
                           isSelected
-                            ? 'bg-[var(--color-teal)]/20 ring-2 ring-[var(--color-teal)]'
+                            ? 'bg-gradient-to-br from-[var(--color-aqua)]/30 to-[var(--color-teal)]/30 ring-3 ring-[var(--color-teal)]'
                             : isEarned
-                            ? 'bg-amber-50 hover:bg-amber-100'
-                            : 'bg-gray-50 hover:bg-gray-100'
+                            ? 'bg-gradient-to-br from-amber-50 to-yellow-100 border-2 border-amber-200'
+                            : 'bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200'
                         }`}
                       >
-                        <span className={`text-4xl mb-2 ${!isEarned && 'grayscale opacity-40'}`}>
+                        {/* Shine effect for earned badges */}
+                        {isEarned && (
+                          <motion.div
+                            className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                            animate={{ x: ['-100%', '200%'] }}
+                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                          />
+                        )}
+
+                        <motion.span
+                          className={`text-4xl mb-2 relative ${!isEarned && 'grayscale opacity-40'}`}
+                          animate={isEarned ? { scale: [1, 1.1, 1], rotate: [0, -5, 5, 0] } : {}}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
                           {badge.emoji}
-                        </span>
-                        <span className={`text-xs font-medium text-center ${
+                        </motion.span>
+                        <span className={`text-xs font-bold text-center ${
                           isEarned ? 'text-[var(--color-navy)]' : 'text-gray-400'
                         }`}>
                           {badge.name}
                         </span>
                         {isEarned && (
-                          <span className="text-green-500 text-xs mt-1">✓ Earned</span>
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs shadow-md"
+                          >
+                            ✓
+                          </motion.span>
+                        )}
+                        {!isEarned && (
+                          <motion.span
+                            className="absolute -top-1 -right-1 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center text-white text-xs"
+                          >
+                            🔒
+                          </motion.span>
                         )}
                       </motion.button>
                     );
@@ -113,30 +171,46 @@ export function BadgeDisplay() {
                 <AnimatePresence>
                   {selectedBadge && (
                     <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="mt-4 p-4 bg-[var(--color-sand)]/50 rounded-xl"
+                      initial={{ opacity: 0, height: 0, y: 20 }}
+                      animate={{ opacity: 1, height: 'auto', y: 0 }}
+                      exit={{ opacity: 0, height: 0, y: 20 }}
+                      className="mt-6 p-5 bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-lg border-2 border-purple-200"
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="text-3xl">
+                      <div className="flex items-start gap-4">
+                        <motion.span
+                          className="text-5xl"
+                          animate={{ scale: [1, 1.1, 1], rotate: [0, -5, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
                           {BADGES[selectedBadge].emoji}
-                        </span>
-                        <div>
-                          <h3 className="font-semibold text-[var(--color-navy)]">
+                        </motion.span>
+                        <div className="flex-1">
+                          <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-1">
                             {BADGES[selectedBadge].name}
                           </h3>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-600 leading-relaxed mb-2">
                             {BADGES[selectedBadge].description}
                           </p>
                           {badges.includes(selectedBadge) ? (
-                            <span className="inline-block mt-1 px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full">
-                              ✓ Earned!
-                            </span>
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-400 to-emerald-400 text-white text-sm font-bold rounded-full shadow-md"
+                            >
+                              <span>✓</span>
+                              <span>Earned!</span>
+                              <motion.span
+                                animate={{ rotate: [0, 360] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                              >
+                                ⭐
+                              </motion.span>
+                            </motion.div>
                           ) : (
-                            <span className="inline-block mt-1 px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full">
-                              Keep exploring to earn this!
-                            </span>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">
+                              <span>🔒</span>
+                              <span>Keep exploring to unlock!</span>
+                            </div>
                           )}
                         </div>
                       </div>
