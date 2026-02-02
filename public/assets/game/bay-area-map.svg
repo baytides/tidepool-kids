@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900">
+  <!-- Background gradient (ocean to land) -->
+  <defs>
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4FC3F7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#29B6F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="landGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A5D6A7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#81C784;stop-opacity:1" />
+    </linearGradient>
+    <!-- Wave pattern -->
+    <pattern id="waves" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 10 Q10 5 20 10 T40 10" stroke="#81D4FA" stroke-width="1" fill="none" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Ocean background -->
+  <rect width="800" height="900" fill="url(#oceanGrad)"/>
+  <rect width="800" height="900" fill="url(#waves)"/>
+
+  <!-- San Francisco Bay (simplified accurate shape) -->
+  <path id="bay" d="
+    M400,100
+    Q350,150 380,200
+    Q400,250 380,320
+    Q350,400 320,500
+    Q300,600 350,700
+    Q400,750 450,700
+    Q500,650 480,550
+    Q450,450 480,350
+    Q500,280 480,200
+    Q450,150 400,100
+    Z
+  " fill="url(#oceanGrad)" stroke="#1E88E5" stroke-width="2"/>
+
+  <!-- Marin Peninsula (North) -->
+  <path d="
+    M100,50 Q200,80 300,100 Q350,120 400,100
+    L380,200 Q300,180 200,150 Q100,120 50,100 Z
+  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="1"/>
+
+  <!-- San Francisco Peninsula -->
+  <path d="
+    M100,200 Q150,180 200,200 Q300,220 380,200
+    L350,400 Q300,380 200,360 Q100,340 50,350 Z
+  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="1"/>
+
+  <!-- South Bay Peninsula -->
+  <path d="
+    M50,400 Q100,380 200,400 Q280,420 320,500
+    L350,700 Q300,680 200,650 Q100,620 50,600 Z
+  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="1"/>
+
+  <!-- East Bay -->
+  <path d="
+    M480,200 Q550,180 650,200 Q750,230 780,300
+    L750,700 Q700,680 600,650 Q500,620 450,700
+    L480,350 Q520,280 480,200 Z
+  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="1"/>
+
+  <!-- Golden Gate area accent -->
+  <line x1="300" y1="150" x2="400" y2="150" stroke="#E53935" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Bay Bridge area accent -->
+  <line x1="420" y1="280" x2="520" y2="280" stroke="#757575" stroke-width="3" stroke-linecap="round"/>
+</svg>
