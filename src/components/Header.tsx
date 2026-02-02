@@ -63,24 +63,6 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Navigation */}
-        <nav className="flex items-center gap-2">
-          <Link
-            href="/"
-            className="flex items-center gap-1 px-3 py-1.5 text-sm font-bold text-[var(--color-navy)] hover:text-white hover:bg-[var(--color-aqua)] rounded-full transition-all"
-          >
-            <span>🗺️</span>
-            Explore
-          </Link>
-          <Link
-            href="/about"
-            className="flex items-center gap-1 px-3 py-1.5 text-sm font-bold text-[var(--color-navy)] hover:text-white hover:bg-[var(--color-teal)] rounded-full transition-all"
-          >
-            <span>🦀</span>
-            About
-          </Link>
-        </nav>
-
         {/* Stats and controls */}
         <div className="flex items-center gap-3">
           {/* Sound toggle */}
