@@ -53,10 +53,8 @@ export function Map() {
           el.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
         });
         el.addEventListener('mouseleave', () => {
-          if (selectedLocation?.id !== location.id) {
-            el.style.transform = 'scale(1)';
-            el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
-          }
+          el.style.transform = 'scale(1)';
+          el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
         });
         el.addEventListener('click', () => {
           selectLocation(location);
@@ -79,7 +77,7 @@ export function Map() {
       map.current?.remove();
       map.current = null;
     };
-  }, [selectLocation, markVisited, selectedLocation?.id]);
+  }, [selectLocation, markVisited]);
 
   // Update marker styles when selection changes
   useEffect(() => {
