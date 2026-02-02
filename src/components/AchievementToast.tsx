@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BADGES, BadgeId, useAppStore } from '@/store/useAppStore';
 
@@ -13,16 +13,29 @@ interface ToastNotification {
 }
 
 export function AchievementToast() {
-  const { badges, totalPoints, currentStreak } = useAppStore();
+  const { badges, currentStreak } = useAppStore();
   const [notifications, setNotifications] = useState<ToastNotification[]>([]);
-  const [lastBadgeCount, setLastBadgeCount] = useState(badges.length);
-  const [lastPoints, setLastPoints] = useState(totalPoints);
-  const [lastStreak, setLastStreak] = useState(currentStreak);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const lastBadgeCountRef = useRef<number | null>(null);
+  const lastStreakRef = useRef<number | null>(null);
 
-  // Watch for new badges
+  // Wait for hydration before starting to track
+  // Use a longer delay to ensure zustand has fully hydrated from localStorage
   useEffect(() => {
-    if (badges.length > lastBadgeCount) {
-      const newBadges = badges.slice(lastBadgeCount);
+    const timer = setTimeout(() => {
+      lastBadgeCountRef.current = badges.length;
+      lastStreakRef.current = currentStreak;
+      setIsHydrated(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Watch for new badges (only after hydration)
+  useEffect(() => {
+    if (!isHydrated || lastBadgeCountRef.current === null) return;
+
+    if (badges.length > lastBadgeCountRef.current) {
+      const newBadges = badges.slice(lastBadgeCountRef.current);
       newBadges.forEach(badgeId => {
         const notification: ToastNotification = {
           id: `badge-${badgeId}-${Date.now()}`,
@@ -31,13 +44,15 @@ export function AchievementToast() {
         };
         setNotifications(prev => [...prev, notification]);
       });
-      setLastBadgeCount(badges.length);
     }
-  }, [badges, lastBadgeCount]);
+    lastBadgeCountRef.current = badges.length;
+  }, [badges, isHydrated]);
 
-  // Watch for streak changes
+  // Watch for streak changes (only after hydration)
   useEffect(() => {
-    if (currentStreak > lastStreak && currentStreak > 1) {
+    if (!isHydrated || lastStreakRef.current === null) return;
+
+    if (currentStreak > lastStreakRef.current && currentStreak > 1) {
       const notification: ToastNotification = {
         id: `streak-${Date.now()}`,
         type: 'streak',
@@ -45,8 +60,8 @@ export function AchievementToast() {
       };
       setNotifications(prev => [...prev, notification]);
     }
-    setLastStreak(currentStreak);
-  }, [currentStreak, lastStreak]);
+    lastStreakRef.current = currentStreak;
+  }, [currentStreak, isHydrated]);
 
   // Auto-remove notifications after 4 seconds
   useEffect(() => {

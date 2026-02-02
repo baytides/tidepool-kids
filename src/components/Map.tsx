@@ -121,10 +121,10 @@ export function Map() {
           <div className="text-center p-8">
             <div className="text-6xl mb-4">🗺️</div>
             <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
-              Map Loading...
+              Explore the Bay Area
             </h3>
             <p className="text-sm text-gray-600 max-w-xs">
-              Select a location from the sidebar to start exploring!
+              Select a location from the sidebar to learn about amazing places!
             </p>
           </div>
         </div>
