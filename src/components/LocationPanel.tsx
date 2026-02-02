@@ -1,21 +1,41 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
+import { Location } from '@/types';
 
 type Tab = 'discover' | 'explore' | 'play';
 
 export function LocationPanel() {
   const { selectedLocation, selectLocation, collectCreature, collectedCreatures } = useAppStore();
-  const [activeTab, setActiveTab] = useState<Tab>('discover');
-
-  // Reset tab state when location changes
-  useEffect(() => {
-    setActiveTab('discover');
-  }, [selectedLocation?.id]);
 
   if (!selectedLocation) return null;
+
+  // Render LocationPanelContent with key to reset state when location changes
+  return (
+    <LocationPanelContent
+      key={selectedLocation.id}
+      selectedLocation={selectedLocation}
+      selectLocation={selectLocation}
+      collectCreature={collectCreature}
+      collectedCreatures={collectedCreatures}
+    />
+  );
+}
+
+function LocationPanelContent({
+  selectedLocation,
+  selectLocation,
+  collectCreature,
+  collectedCreatures,
+}: {
+  selectedLocation: Location;
+  selectLocation: (location: Location | null) => void;
+  collectCreature: (creatureId: string) => void;
+  collectedCreatures: string[];
+}) {
+  const [activeTab, setActiveTab] = useState<Tab>('discover');
 
   const { content } = selectedLocation;
   const hasCreatures = content.creatures && content.creatures.length > 0;
