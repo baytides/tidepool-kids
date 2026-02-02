@@ -359,6 +359,87 @@ export const locations: Location[] = [
     },
   },
   {
+    id: 'crissy-field-marsh',
+    name: 'Crissy Field Marsh',
+    type: 'habitat',
+    category: 'Wetland',
+    icon: '🦩',
+    color: '#00897b',
+    coordinates: [-122.4652, 37.8040],
+    content: {
+      title: 'Crissy Field Marsh',
+      tagline: {
+        k2: 'A tiny marsh by the Golden Gate!',
+        grades35: 'A restored wetland with a view of the bridge!',
+        grades68: 'A successfully restored tidal marsh in the Presidio.',
+      },
+      description: {
+        k2: 'This little marsh was fixed up so birds and fish could live here again!',
+        grades35: 'Crissy Field used to be a runway for airplanes. Now it\'s been restored as a wetland and birds are coming back!',
+        grades68: 'The Crissy Field restoration project transformed 100 acres of abandoned airfield into functioning tidal marsh, demonstrating successful urban ecosystem restoration.',
+      },
+      whyItMatters: {
+        k2: 'People worked hard to bring the birds back. We can help by keeping it clean!',
+        grades35: 'This shows we can fix habitats that were damaged. When we restore wetlands, wildlife returns!',
+        grades68: 'Urban wetland restoration provides measurable ecosystem services while serving as outdoor classrooms for environmental education.',
+      },
+      funFacts: [
+        {
+          k2: 'Airplanes used to land right here!',
+          grades35: 'This marsh was once a concrete runway where the first airmail flights took off!',
+          grades68: 'The restoration removed 87,000 cubic yards of debris and reintroduced native tidal marsh vegetation.',
+        },
+        {
+          k2: 'Over 100 kinds of birds visit this tiny marsh!',
+          grades35: 'More than 100 bird species have been spotted at Crissy Field since it was restored!',
+          grades68: 'Post-restoration monitoring documented a 300% increase in bird species diversity within 5 years.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'great-blue-heron',
+          name: 'Great Blue Heron',
+          emoji: '🦩',
+          fact: {
+            k2: 'They stand super still waiting for fish!',
+            grades35: 'Great blue herons can stand perfectly still for hours waiting to strike at passing fish.',
+            grades68: 'Ardea herodias employs a sit-and-wait hunting strategy, with strike speeds under 0.05 seconds.',
+          },
+        },
+        {
+          id: 'pacific-chorus-frog',
+          name: 'Pacific Chorus Frog',
+          emoji: '🐸',
+          fact: {
+            k2: 'Their singing tells us spring is here!',
+            grades35: 'Pacific chorus frogs are tiny but their "ribbit" call is surprisingly loud!',
+            grades68: 'Pseudacris regilla calls indicate healthy wetland conditions and are used to monitor restoration success.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'This used to be an airport! Now it\'s home for birds and frogs!',
+        grades35: 'Look how people turned a runway into a wetland! Nature came back!',
+        grades68: 'This restoration project demonstrates ecological recovery in urban environments.',
+      },
+      takeAction: {
+        k2: 'Stay on the paths so birds feel safe!',
+        grades35: 'Keep dogs leashed and stay on trails to protect nesting birds.',
+        grades68: 'Support urban restoration projects and participate in volunteer monitoring programs.',
+      },
+      principles: {
+        primary: 'III',
+        secondary: ['I', 'V'],
+        concepts: ['III-A', 'III-B', 'I-B', 'V-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
     id: 'ocean-beach',
     name: 'Ocean Beach',
     type: 'habitat',
@@ -431,6 +512,87 @@ export const locations: Location[] = [
         primary: 'I',
         secondary: ['IV'],
         concepts: ['I-C', 'IV-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
+    id: 'stinson-beach',
+    name: 'Stinson Beach',
+    type: 'habitat',
+    category: 'Beach',
+    icon: '🦈',
+    color: '#ff7043',
+    coordinates: [-122.6440, 37.9012],
+    content: {
+      title: 'Stinson Beach',
+      tagline: {
+        k2: 'A beach where sharks swim by!',
+        grades35: 'Where the redwoods meet the sea!',
+        grades68: 'A dynamic coastal ecosystem in the Red Triangle.',
+      },
+      description: {
+        k2: 'This beach has waves, sand, and sometimes sharks swimming nearby!',
+        grades35: 'Stinson Beach sits at the edge of Marin County where Mt. Tam\'s redwood forests meet the Pacific Ocean.',
+        grades68: 'Located in the "Red Triangle," this beach is part of a productive coastal upwelling zone that supports large marine predator populations.',
+      },
+      whyItMatters: {
+        k2: 'Sharks help keep the ocean healthy by eating sick fish!',
+        grades35: 'Sharks are important predators that keep fish populations balanced. Healthy oceans need sharks!',
+        grades68: 'Apex predators like white sharks regulate prey populations and maintain trophic cascades that support overall ecosystem health.',
+      },
+      funFacts: [
+        {
+          k2: 'White sharks are curious and swim by to look at surfers!',
+          grades35: 'Great white sharks sometimes investigate surfers from below - they\'re curious, not hungry for humans!',
+          grades68: 'Juvenile white sharks use Bay Area waters as a nursery, with most human encounters being investigatory rather than predatory.',
+        },
+        {
+          k2: 'Sea otters used to live here and might come back!',
+          grades35: 'Sea otters were once common here and scientists hope they\'ll return as their populations recover.',
+          grades68: 'Historical sea otter range extended throughout California; recolonization of Marin waters could help restore kelp forest ecosystems.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'white-shark',
+          name: 'Great White Shark',
+          emoji: '🦈',
+          fact: {
+            k2: 'They can smell a tiny drop of blood from far away!',
+            grades35: 'Great white sharks can detect one drop of blood in 25 gallons of water!',
+            grades68: 'Carcharodon carcharias possesses electroreceptors (ampullae of Lorenzini) that detect prey bioelectric fields.',
+          },
+        },
+        {
+          id: 'harbor-seal-stinson',
+          name: 'Harbor Seal',
+          emoji: '🦭',
+          fact: {
+            k2: 'They rest on rocks to warm up in the sun!',
+            grades35: 'Harbor seals "haul out" onto rocks to rest, warm up, and escape predators.',
+            grades68: 'Harbor seal haul-out sites are protected under the Marine Mammal Protection Act.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Wow, big waves! And sometimes sharks swim by - how cool!',
+        grades35: 'This beach is part of the "Red Triangle" where sharks like to hunt!',
+        grades68: 'The nutrient-rich waters here support a complex marine food web.',
+      },
+      takeAction: {
+        k2: 'Never bother seals resting on the beach!',
+        grades35: 'Stay 100 feet from resting seals and never feed wildlife.',
+        grades68: 'Report marine mammal strandings to The Marine Mammal Center and support shark research programs.',
+      },
+      principles: {
+        primary: 'I',
+        secondary: ['II'],
+        concepts: ['I-A', 'I-C', 'II-A'],
       },
       standards: {
         k2: 'K-ESS3-3',
