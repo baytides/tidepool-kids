@@ -82,11 +82,11 @@ function LocationPanelContent({
     <AnimatePresence>
       <motion.div
         key={selectedLocation.id}
-        initial={{ y: '100%' }}
-        animate={{ y: 0 }}
-        exit={{ y: '100%' }}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="fixed bottom-0 left-0 right-80 bg-gradient-to-b from-white to-blue-50 rounded-t-3xl shadow-2xl max-h-[60vh] flex flex-col z-40 border-t-4 border-[var(--color-aqua)]"
+        className="h-full bg-gradient-to-b from-white to-blue-50 flex flex-col overflow-hidden"
       >
         {/* Celebration effects */}
         {showCelebration && <Confetti active={true} pieceCount={50} useEmojis={true} />}
