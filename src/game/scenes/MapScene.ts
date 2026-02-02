@@ -19,7 +19,7 @@ export class MapScene extends Scene {
 
   // Map dimensions (will be set on create)
   private mapWidth = 800;
-  private mapHeight = 900;
+  private mapHeight = 1000;
   private mapOffsetX = 0;
   private mapOffsetY = 0;
 
@@ -50,7 +50,7 @@ export class MapScene extends Scene {
     const { width, height } = this.scale;
 
     // Fit map to screen while maintaining aspect ratio
-    const mapAspect = 800 / 900;
+    const mapAspect = 800 / 1000;
     const screenAspect = width / height;
 
     if (screenAspect > mapAspect) {

@@ -26,7 +26,7 @@ export class BootScene extends Scene {
     });
 
     // Load map background
-    this.load.svg('bay-area-map', '/assets/game/bay-area-map.svg', { width: 800, height: 900 });
+    this.load.svg('bay-area-map', '/assets/game/bay-area-map.svg', { width: 800, height: 1000 });
 
     // Load node states
     this.load.svg('node-locked', '/assets/game/node-locked.svg', { width: 64, height: 64 });
