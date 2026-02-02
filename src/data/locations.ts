@@ -1555,4 +1555,198 @@ export const locations: Location[] = [
       },
     },
   },
+  {
+    id: 'sf-seawall',
+    name: 'SF Seawall',
+    type: 'infrastructure',
+    category: 'Flood Protection',
+    icon: '🧱',
+    color: '#78909c',
+    coordinates: [-122.3932, 37.7942],
+    content: {
+      title: 'San Francisco Seawall',
+      tagline: {
+        k2: 'A wall that keeps the ocean out!',
+        grades35: 'Protecting the city from rising seas!',
+        grades68: 'Century-old infrastructure facing sea level rise challenges.',
+      },
+      description: {
+        k2: 'This old wall keeps the water from flooding the city!',
+        grades35: 'The Seawall was built over 100 years ago. It holds up the Embarcadero and BART tunnels, but needs fixing as seas rise.',
+        grades68: 'The 3-mile Seawall, constructed 1878-1916, supports $100B in assets but faces liquefaction risk during earthquakes and rising sea levels.',
+      },
+      whyItMatters: {
+        k2: 'The wall protects houses and BART trains from flooding!',
+        grades35: 'Without the Seawall, downtown SF and BART would flood. We need to strengthen it!',
+        grades68: 'Climate adaptation infrastructure investment protects critical assets; seawall failure could flood the transbay tube and financial district.',
+      },
+      funFacts: [
+        {
+          k2: 'The wall is over 100 years old!',
+          grades35: 'Workers built the Seawall by hand over 100 years ago using rocks and old ships!',
+          grades68: 'Construction used timber piles from dismantled Gold Rush ships and rock fill totaling 4 million cubic yards.',
+        },
+        {
+          k2: 'Old ships are buried inside the wall!',
+          grades35: 'Abandoned Gold Rush ships were actually used as part of the foundation!',
+          grades68: 'Archaeological surveys have documented over 40 buried ships within the original fill zone.',
+        },
+      ],
+      howItWorks: [
+        {
+          step: 1,
+          title: 'The Foundation',
+          description: {
+            k2: 'Big rocks and old ships make the bottom strong.',
+            grades35: 'The original Seawall sits on timber piles and rubble fill.',
+            grades68: 'Timber pile foundations and rock fill create a gravity structure resisting hydrostatic pressure.',
+          },
+        },
+        {
+          step: 2,
+          title: 'Holding Back Water',
+          description: {
+            k2: 'The wall stops waves from splashing over.',
+            grades35: 'The concrete face keeps Bay water from flooding the waterfront.',
+            grades68: 'The sea-facing wall provides a physical barrier against tidal and storm surge flooding.',
+          },
+        },
+        {
+          step: 3,
+          title: 'Supporting the City',
+          description: {
+            k2: 'Buildings and roads sit on top of the wall.',
+            grades35: 'The Embarcadero, BART, and buildings all depend on the Seawall for support.',
+            grades68: 'Critical infrastructure including BART transbay tube portals are founded on Seawall-stabilized fill.',
+          },
+        },
+        {
+          step: 4,
+          title: 'Climate Adaptation',
+          description: {
+            k2: 'People are making the wall stronger for bigger waves.',
+            grades35: 'Engineers are upgrading the Seawall to handle rising seas and earthquakes.',
+            grades68: 'A multi-billion dollar program will raise, strengthen, and provide redundant flood protection.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'This wall keeps the Bay from flooding the city!',
+        grades35: 'The Seawall is old and needs fixing. Climate change is making seas rise!',
+        grades68: 'This infrastructure represents the front line of urban climate adaptation.',
+      },
+      takeAction: {
+        k2: 'Tell grown-ups about sea level rise!',
+        grades35: 'Learn about sea level rise and share what you know with others.',
+        grades68: 'Support bond measures funding seawall improvements and advocate for proactive climate adaptation.',
+      },
+      principles: {
+        primary: 'V',
+        secondary: ['II'],
+        concepts: ['V-A', 'V-B', 'II-C'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
+    id: 'altamont-landfill',
+    name: 'Altamont Landfill',
+    type: 'infrastructure',
+    category: 'Waste',
+    icon: '🗑️',
+    color: '#795548',
+    coordinates: [-121.6194, 37.7317],
+    content: {
+      title: 'Altamont Landfill',
+      tagline: {
+        k2: 'Where trash goes when it can\'t be recycled!',
+        grades35: 'The end of the line for garbage!',
+        grades68: 'Modern sanitary landfill with methane capture.',
+      },
+      description: {
+        k2: 'This is where trash goes when we throw it away. It gets buried in the ground.',
+        grades35: 'Landfills are carefully designed to keep trash from polluting the ground and water. But it\'s better to reduce, reuse, and recycle!',
+        grades68: 'Modern sanitary landfills feature composite liners, leachate collection, and methane capture systems to minimize environmental impact.',
+      },
+      whyItMatters: {
+        k2: 'We should make less trash so the landfill lasts longer!',
+        grades35: 'Landfills eventually fill up. By reducing waste, we help the planet and save space.',
+        grades68: 'Landfill capacity is finite; waste reduction extends site lifespan while methane capture offsets emissions.',
+      },
+      funFacts: [
+        {
+          k2: 'The buried trash makes gas that becomes electricity!',
+          grades35: 'As trash breaks down, it makes methane gas. The landfill captures it to make electricity!',
+          grades68: 'Landfill gas-to-energy systems capture methane (CH4) to generate 20+ MW of renewable electricity.',
+        },
+        {
+          k2: 'Plastic bags take 500 years to break down!',
+          grades35: 'A plastic bag can take 500 years to decompose - that\'s why we should use reusable bags!',
+          grades68: 'Petroleum-based plastics persist for centuries; only 9% of plastics produced have been recycled.',
+        },
+      ],
+      howItWorks: [
+        {
+          step: 1,
+          title: 'Trash Arrives',
+          description: {
+            k2: 'Big trucks bring garbage from cities.',
+            grades35: 'Garbage trucks bring waste from homes and businesses all over the Bay Area.',
+            grades68: 'Transfer stations consolidate municipal solid waste for efficient long-haul transport to the landfill.',
+          },
+        },
+        {
+          step: 2,
+          title: 'Compaction',
+          description: {
+            k2: 'Heavy machines squish the trash down flat.',
+            grades35: 'Huge compactors crush and flatten the trash to save space.',
+            grades68: 'Compaction achieves densities of 1,400+ lbs/cubic yard, maximizing airspace utilization.',
+          },
+        },
+        {
+          step: 3,
+          title: 'Daily Cover',
+          description: {
+            k2: 'Dirt covers the trash every day.',
+            grades35: 'Each day, a layer of soil covers the trash to prevent odors and pests.',
+            grades68: 'Daily cover minimizes vectors, odors, and wind-blown debris per regulatory requirements.',
+          },
+        },
+        {
+          step: 4,
+          title: 'Gas Capture',
+          description: {
+            k2: 'Pipes collect smelly gas to make power.',
+            grades35: 'Pipes buried in the trash collect methane gas to generate electricity.',
+            grades68: 'Vertical extraction wells and horizontal collectors route landfill gas to reciprocating engines for power generation.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Everything we throw away comes here. Let\'s make less trash!',
+        grades35: 'This is where trash ends up. What can we do to send less here?',
+        grades68: 'Understanding waste management helps us minimize our environmental footprint.',
+      },
+      takeAction: {
+        k2: 'Use less stuff and recycle more!',
+        grades35: 'Practice the 5 Rs: Refuse, Reduce, Reuse, Recycle, Rot (compost)!',
+        grades68: 'Adopt zero-waste practices and support extended producer responsibility legislation.',
+      },
+      principles: {
+        primary: 'IV',
+        secondary: ['II', 'V'],
+        concepts: ['IV-A', 'IV-B', 'II-B', 'V-A'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
 ];
