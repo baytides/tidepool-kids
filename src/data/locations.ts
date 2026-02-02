@@ -96,6 +96,97 @@ export const locations: Location[] = [
     },
   },
   {
+    id: 'pillar-point-harbor',
+    name: 'Pillar Point Harbor',
+    type: 'habitat',
+    category: 'Tide Pool',
+    icon: '🐙',
+    color: '#7e57c2',
+    coordinates: [-122.4951, 37.4960],
+    content: {
+      title: 'Pillar Point Harbor',
+      tagline: {
+        k2: 'Where octopuses hide in the rocks!',
+        grades35: 'A harbor full of hidden sea life!',
+        grades68: 'A protected harbor with rich intertidal biodiversity.',
+      },
+      description: {
+        k2: 'Big rocks make great hiding spots for octopuses and crabs!',
+        grades35: 'This harbor has calm waters and rocky shores where you can find octopuses, crabs, and colorful sea slugs.',
+        grades68: 'The breakwater creates a protected environment that supports diverse invertebrate populations, including cephalopods and nudibranchs.',
+      },
+      whyItMatters: {
+        k2: 'Octopuses are really smart! We need to keep their home clean.',
+        grades35: 'This habitat is important for many species to find food and shelter. Keeping the water clean helps everyone.',
+        grades68: 'Harbor ecosystems face unique pressures from boat traffic and runoff, making conservation efforts essential for maintaining biodiversity.',
+      },
+      funFacts: [
+        {
+          k2: 'Octopuses can change color in one second!',
+          grades35: 'Octopuses can change both their color AND texture to match their surroundings perfectly.',
+          grades68: 'Cephalopod chromatophores contain elastic sacs of pigment that expand and contract under neural control at millisecond timescales.',
+        },
+        {
+          k2: 'Octopuses have 3 hearts!',
+          grades35: 'An octopus has three hearts - two pump blood to the gills and one pumps it to the body.',
+          grades68: 'The cephalopod circulatory system with three hearts compensates for the oxygen-carrying limitations of copper-based hemocyanin.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'giant-pacific-octopus',
+          name: 'Giant Pacific Octopus',
+          emoji: '🐙',
+          fact: {
+            k2: 'They have 8 arms and 3 hearts!',
+            grades35: 'Giant Pacific octopuses have 8 arms with suckers, 3 hearts, and blue blood!',
+            grades68: 'GPO (Enteroctopus dofleini) can grow to 16 feet and exhibit problem-solving intelligence comparable to some mammals.',
+          },
+        },
+        {
+          id: 'rock-crab',
+          name: 'Rock Crab',
+          emoji: '🦀',
+          fact: {
+            k2: 'They walk sideways!',
+            grades35: 'Rock crabs walk sideways because their legs bend that way. It makes them fast!',
+            grades68: 'The lateral gait of crabs evolved as an adaptation to their flattened body plan and leg joint structure.',
+          },
+        },
+        {
+          id: 'nudibranch',
+          name: 'Nudibranch',
+          emoji: '🐌',
+          fact: {
+            k2: 'They look like tiny rainbows!',
+            grades35: 'Nudibranchs are colorful sea slugs. Their bright colors warn predators that they taste bad!',
+            grades68: 'Nudibranch aposematic coloration often signals the presence of secondary metabolites sequestered from cnidarian prey.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Look! The rocks have so many hiding spots! Can you find the octopus?',
+        grades35: 'This harbor is great for spotting sea life. Keep your eyes on the rocky areas!',
+        grades68: 'The protected waters here create ideal conditions for observing cryptic species.',
+      },
+      takeAction: {
+        k2: 'Be quiet so the animals don\'t get scared!',
+        grades35: 'Move slowly and quietly. Animals hide when they sense movement.',
+        grades68: 'Minimize disturbance by observing from a distance and avoiding direct contact with organisms.',
+      },
+      principles: {
+        primary: 'I',
+        secondary: ['II'],
+        concepts: ['I-A', 'I-B', 'II-A'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
     id: 'don-edwards-wetlands',
     name: 'Don Edwards Wetlands',
     type: 'habitat',
@@ -163,6 +254,97 @@ export const locations: Location[] = [
         k2: 'Be quiet so we don\'t scare the birds!',
         grades35: 'Keep dogs on leashes and stay on marked trails to protect nesting birds.',
         grades68: 'Support wetland restoration projects and advocate for policies protecting remaining Bay Area marshlands.',
+      },
+      principles: {
+        primary: 'I',
+        secondary: ['III'],
+        concepts: ['I-B', 'III-A', 'III-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
+    id: 'palo-alto-baylands',
+    name: 'Palo Alto Baylands',
+    type: 'habitat',
+    category: 'Wetland',
+    icon: '🦅',
+    color: '#43a047',
+    coordinates: [-122.1066, 37.4587],
+    content: {
+      title: 'Palo Alto Baylands',
+      tagline: {
+        k2: 'A marshy home for so many birds!',
+        grades35: 'Where the marsh meets the Bay!',
+        grades68: 'A critical salt marsh ecosystem in the South Bay.',
+      },
+      description: {
+        k2: 'This soggy place is full of birds looking for yummy snacks!',
+        grades35: 'Salt marshes like this are important because they give birds a place to eat, rest, and raise their babies.',
+        grades68: 'Salt marshes provide essential ecosystem services including flood mitigation, carbon sequestration, and nursery habitat for fish.',
+      },
+      whyItMatters: {
+        k2: 'Birds need clean marshes to find food. No littering!',
+        grades35: 'Wetlands filter dirty water and protect the shoreline from flooding. They\'re like nature\'s sponges!',
+        grades68: 'Coastal wetlands store more carbon per hectare than most forests, making them critical for climate regulation.',
+      },
+      funFacts: [
+        {
+          k2: 'Some birds fly super far to visit here!',
+          grades35: 'Migrating birds can fly over 10,000 miles to reach Bay Area wetlands!',
+          grades68: 'The Pacific Flyway migration corridor sees millions of birds annually, with Bay wetlands serving as critical stopover sites.',
+        },
+        {
+          k2: 'There\'s a tiny mouse that can swim in salty water!',
+          grades35: 'The salt marsh harvest mouse is endangered and can only live in pickleweed marshes.',
+          grades68: 'Reithrodontomys raviventris is endemic to San Francisco Bay, having evolved to drink hypersaline water.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'snowy-egret',
+          name: 'Snowy Egret',
+          emoji: '🦢',
+          fact: {
+            k2: 'They have bright yellow feet like rain boots!',
+            grades35: 'Snowy egrets have yellow feet they use to stir up fish in shallow water.',
+            grades68: 'The distinctive yellow lores and feet of breeding snowy egrets are used in courtship displays.',
+          },
+        },
+        {
+          id: 'salt-marsh-harvest-mouse',
+          name: 'Salt Marsh Harvest Mouse',
+          emoji: '🐭',
+          fact: {
+            k2: 'This tiny mouse can swim!',
+            grades35: 'The salt marsh harvest mouse is endangered and can only live in pickleweed marshes.',
+            grades68: 'Reithrodontomys raviventris is endemic to San Francisco Bay and adapted to drink saline water.',
+          },
+        },
+        {
+          id: 'pickleweed',
+          name: 'Pickleweed',
+          emoji: '🌿',
+          fact: {
+            k2: 'This plant loves salty water!',
+            grades35: 'Pickleweed can survive in very salty soil where most plants would die.',
+            grades68: 'Salicornia species excrete excess salt through specialized bladder cells on leaf surfaces.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Look at all the birds! This marsh is like a bird restaurant!',
+        grades35: 'Welcome to the baylands! Birds come from all over the world to visit here.',
+        grades68: 'This salt marsh represents one of the most productive ecosystems per acre on Earth.',
+      },
+      takeAction: {
+        k2: 'Stay on the trail so we don\'t step on bird nests!',
+        grades35: 'Keep dogs on leashes and stay on marked trails to protect ground-nesting birds.',
+        grades68: 'Support wetland restoration efforts and advocate for policies protecting remaining Bay marshlands.',
       },
       principles: {
         primary: 'I',
