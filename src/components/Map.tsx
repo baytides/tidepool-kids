@@ -9,11 +9,14 @@ import { useAppStore } from '@/store/useAppStore';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
+// Check token validity synchronously to avoid flash of incorrect UI
+const isTokenInvalid = !mapboxgl.accessToken || mapboxgl.accessToken === 'your_mapbox_token_here';
+
 export function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<{ [key: string]: mapboxgl.Marker }>({});
-  const [mapError, setMapError] = useState(false);
+  const [mapError, setMapError] = useState(isTokenInvalid);
 
   const { selectedLocation, selectLocation, markVisited } = useAppStore();
 
