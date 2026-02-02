@@ -2,14 +2,15 @@
 import { locations } from '@/data/locations';
 
 /**
- * Bay Area bounding box (approximate)
- * Used to convert lat/lng to canvas positions
+ * Bay Area bounding box
+ * Matches the SVG coordinate system exactly
+ * SVG viewBox is 800x800 covering this geographic area
  */
 const BAY_AREA_BOUNDS = {
-  north: 38.2, // Marin headlands
-  south: 37.2, // South of San Jose
-  east: -121.5, // East Bay hills
-  west: -122.8, // Pacific coast
+  north: 38.1, // Top of map
+  south: 37.1, // Bottom of map
+  east: -121.7, // Right edge (East Bay hills)
+  west: -123.1, // Left edge (Pacific coast)
 };
 
 /**

@@ -1,199 +1,236 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<!--
+  San Francisco Bay Area Map
+  Based on actual geographic coordinates, simplified for game use
+
+  Coordinate system:
+  - Viewbox matches roughly -123.1 to -121.7 longitude (West to East)
+  - And 37.1 to 38.1 latitude (South to North)
+  - Converted to 800x800 canvas with padding
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <defs>
-    <!-- Ocean gradient -->
-    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4FC3F7"/>
-      <stop offset="100%" style="stop-color:#29B6F6"/>
+    <!-- Ocean -->
+    <linearGradient id="ocean" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4DD0E1"/>
+      <stop offset="100%" stop-color="#26C6DA"/>
     </linearGradient>
-    <!-- Land gradient -->
-    <linearGradient id="landGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#8BC34A"/>
-      <stop offset="100%" style="stop-color:#689F38"/>
+
+    <!-- Land -->
+    <linearGradient id="land" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#81C784"/>
+      <stop offset="100%" stop-color="#66BB6A"/>
     </linearGradient>
+
     <!-- Bay water -->
-    <linearGradient id="bayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0288D1"/>
-      <stop offset="100%" style="stop-color:#0277BD"/>
+    <linearGradient id="bay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#039BE5"/>
+      <stop offset="50%" stop-color="#0288D1"/>
+      <stop offset="100%" stop-color="#0277BD"/>
     </linearGradient>
-    <!-- Wave pattern for ocean -->
-    <pattern id="waves" x="0" y="0" width="60" height="30" patternUnits="userSpaceOnUse">
-      <path d="M0 15 Q15 5 30 15 T60 15" stroke="#81D4FA" stroke-width="1.5" fill="none" opacity="0.4"/>
-    </pattern>
-    <!-- Forest texture -->
-    <pattern id="forest" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <circle cx="10" cy="10" r="3" fill="#558B2F" opacity="0.3"/>
+
+    <!-- Subtle wave pattern -->
+    <pattern id="waves" patternUnits="userSpaceOnUse" width="50" height="25">
+      <path d="M0 12.5 Q12.5 5, 25 12.5 T50 12.5" stroke="#4FC3F7" stroke-width="1" fill="none" opacity="0.3"/>
     </pattern>
   </defs>
 
   <!-- Ocean background -->
-  <rect width="800" height="1000" fill="url(#oceanGrad)"/>
-  <rect width="800" height="1000" fill="url(#waves)"/>
+  <rect width="800" height="800" fill="url(#ocean)"/>
+  <rect width="800" height="800" fill="url(#waves)"/>
 
-  <!-- ============================================ -->
-  <!-- GEOGRAPHICALLY ACCURATE BAY AREA COASTLINE  -->
-  <!-- Based on actual lat/lng coordinates         -->
-  <!-- Viewbox: roughly -123.1 to -121.6 lng       -->
-  <!--          and 37.2 to 38.2 lat               -->
-  <!-- ============================================ -->
+  <!--
+    MAIN LANDMASS - traced from actual Bay Area geography
+    Key reference points (lat,lng -> canvas x,y):
+    - Point Reyes: (-122.9, 38.0) -> ~143, ~80
+    - Golden Gate: (-122.48, 37.82) -> ~443, ~260
+    - San Jose: (-121.89, 37.34) -> ~864, ~740
+    - Richmond: (-122.35, 37.94) -> ~536, ~140
 
-  <!-- Pacific Ocean side (West) - already covered by background -->
+    Conversion formula:
+    x = (lng - (-123.1)) / ((-121.7) - (-123.1)) * 800
+    y = (38.1 - lat) / (38.1 - 37.1) * 800
+  -->
 
-  <!-- Marin County / North Bay landmass -->
+  <!-- MARIN COUNTY - North of Golden Gate -->
   <path d="
     M 0,0
-    L 800,0
-    L 800,180
-    L 680,200
-    L 620,240
-    L 580,220
-    L 520,260
-    L 480,240
+    L 0,300
+    L 50,320
+    L 100,310
+    L 140,340
+    L 180,330
+    L 200,360
+    L 240,350
+    L 280,380
+    L 300,350
+    L 340,380
+    L 360,350
+    L 400,360
+    L 420,340
     L 440,280
     L 400,260
-    L 380,300
-    L 340,280
-    L 300,260
-    L 280,220
-    L 260,180
-    L 200,160
-    L 140,140
-    L 80,100
-    L 0,80
+    L 360,200
+    L 380,160
+    L 420,140
+    L 500,120
+    L 560,80
+    L 600,60
+    L 640,40
+    L 700,20
+    L 800,0
     Z
-  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="2"/>
+  " fill="url(#land)" stroke="#4CAF50" stroke-width="1.5"/>
 
-  <!-- San Francisco Peninsula (West side of Bay) -->
+  <!-- SAN FRANCISCO PENINSULA - West of Bay -->
   <path d="
-    M 0,320
-    L 80,340
-    L 140,360
-    L 180,350
-    L 220,380
-    L 260,360
-    L 300,390
-    L 320,420
+    M 0,380
+    L 60,400
+    L 100,390
+    L 140,420
+    L 180,400
+    L 220,440
+    L 260,420
     L 300,460
-    L 280,500
-    L 260,560
-    L 240,620
-    L 220,680
-    L 200,740
-    L 180,800
-    L 160,860
-    L 140,920
-    L 120,1000
-    L 0,1000
+    L 340,440
+    L 380,480
+    L 400,520
+    L 380,560
+    L 360,600
+    L 340,640
+    L 320,680
+    L 300,720
+    L 280,760
+    L 260,800
+    L 0,800
     Z
-  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="2"/>
+  " fill="url(#land)" stroke="#4CAF50" stroke-width="1.5"/>
 
-  <!-- East Bay landmass -->
+  <!-- EAST BAY - Oakland, Berkeley, etc -->
   <path d="
-    M 800,280
-    L 700,300
-    L 660,340
-    L 620,380
-    L 600,440
-    L 580,500
-    L 560,560
-    L 540,620
-    L 520,680
-    L 500,740
-    L 480,800
-    L 460,860
-    L 440,920
-    L 420,1000
-    L 800,1000
+    M 800,100
+    L 700,120
+    L 640,160
+    L 600,200
+    L 560,240
+    L 540,300
+    L 520,360
+    L 500,420
+    L 480,480
+    L 460,540
+    L 440,600
+    L 420,660
+    L 400,720
+    L 380,800
+    L 800,800
     Z
-  " fill="url(#landGrad)" stroke="#4CAF50" stroke-width="2"/>
+  " fill="url(#land)" stroke="#4CAF50" stroke-width="1.5"/>
 
-  <!-- San Francisco Bay (the actual bay water) -->
-  <!-- This is the distinctive "reverse J" or "C" shape -->
+  <!-- SAN FRANCISCO BAY - The actual bay water -->
+  <!-- This is the most important geographic feature! -->
   <path d="
-    M 300,300
-    Q 340,320 380,340
-    Q 420,360 460,380
-    Q 500,400 520,440
-    Q 540,480 540,520
-    Q 540,560 520,600
-    Q 500,640 480,680
-    Q 460,720 440,760
-    Q 420,800 400,840
-    Q 380,880 360,920
-    L 340,920
-    Q 320,880 300,840
-    Q 280,800 280,760
-    Q 280,720 300,680
-    Q 320,640 340,600
-    Q 360,560 380,520
-    Q 400,480 400,440
-    Q 400,400 380,360
-    Q 360,340 340,320
-    Q 320,300 300,300
+    M 440,280
+    Q 480,300 500,340
+    Q 520,380 520,420
+    Q 520,460 500,500
+    Q 480,540 460,580
+    Q 440,620 420,660
+    Q 400,700 380,740
+    L 340,720
+    Q 320,680 320,640
+    Q 320,600 340,560
+    Q 360,520 380,480
+    Q 400,440 400,400
+    Q 400,360 380,320
+    Q 360,290 340,270
+    L 360,250
+    Q 400,260 440,280
     Z
-  " fill="url(#bayGrad)" stroke="#0277BD" stroke-width="2"/>
+  " fill="url(#bay)" stroke="#0277BD" stroke-width="2"/>
 
-  <!-- San Pablo Bay (North Bay) -->
+  <!-- SAN PABLO BAY - North bay -->
   <path d="
-    M 320,280
-    Q 380,260 440,280
-    Q 500,300 540,340
-    Q 520,380 480,360
-    Q 440,340 400,340
-    Q 360,340 340,320
-    Q 320,300 320,280
+    M 360,250
+    Q 400,220 460,200
+    Q 520,180 560,200
+    Q 580,220 560,250
+    Q 540,280 500,300
+    Q 460,310 420,290
+    Q 400,270 400,260
+    L 360,250
     Z
-  " fill="url(#bayGrad)" stroke="#0277BD" stroke-width="1"/>
+  " fill="url(#bay)" stroke="#0277BD" stroke-width="1.5"/>
 
-  <!-- Golden Gate strait -->
+  <!-- SOUTH BAY - Below the main bay -->
   <path d="
-    M 260,300
-    L 300,300
-    L 300,320
-    L 260,320
+    M 380,740
+    Q 360,760 340,780
+    L 360,800
+    L 380,800
+    Q 390,780 380,740
     Z
-  " fill="url(#bayGrad)"/>
+  " fill="url(#bay)" stroke="#0277BD" stroke-width="1"/>
 
-  <!-- Golden Gate Bridge (iconic red) -->
-  <line x1="250" y1="305" x2="310" y2="305" stroke="#E53935" stroke-width="6" stroke-linecap="round"/>
-  <line x1="265" y1="295" x2="265" y2="315" stroke="#E53935" stroke-width="3"/>
-  <line x1="295" y1="295" x2="295" y2="315" stroke="#E53935" stroke-width="3"/>
+  <!-- GOLDEN GATE STRAIT -->
+  <rect x="340" y="268" width="60" height="24" fill="url(#bay)" opacity="0.9"/>
 
-  <!-- Bay Bridge -->
-  <line x1="360" y1="420" x2="520" y2="450" stroke="#78909C" stroke-width="4" stroke-linecap="round"/>
+  <!-- GOLDEN GATE BRIDGE - iconic red -->
+  <g stroke="#D32F2F" stroke-linecap="round">
+    <line x1="335" y1="280" x2="405" y2="280" stroke-width="5"/>
+    <!-- Towers -->
+    <line x1="350" y1="268" x2="350" y2="292" stroke-width="3"/>
+    <line x1="390" y1="268" x2="390" y2="292" stroke-width="3"/>
+    <!-- Cables -->
+    <path d="M335,280 Q350,265 370,280 Q390,265 405,280" fill="none" stroke-width="1.5"/>
+  </g>
 
-  <!-- San Mateo Bridge -->
-  <line x1="320" y1="620" x2="480" y2="640" stroke="#78909C" stroke-width="3" stroke-linecap="round"/>
+  <!-- BAY BRIDGE -->
+  <g stroke="#546E7A" stroke-linecap="round">
+    <line x1="410" y1="380" x2="510" y2="400" stroke-width="4"/>
+  </g>
 
-  <!-- Dumbarton Bridge -->
-  <line x1="300" y1="740" x2="460" y2="760" stroke="#78909C" stroke-width="3" stroke-linecap="round"/>
+  <!-- SAN MATEO BRIDGE -->
+  <line x1="360" y1="560" x2="460" y2="575" stroke="#607D8B" stroke-width="3" stroke-linecap="round"/>
 
-  <!-- Forest areas in Marin (Muir Woods area) -->
-  <ellipse cx="200" cy="200" rx="60" ry="40" fill="#2E7D32" opacity="0.5"/>
+  <!-- DUMBARTON BRIDGE -->
+  <line x1="340" y1="660" x2="430" y2="670" stroke="#607D8B" stroke-width="3" stroke-linecap="round"/>
 
-  <!-- Forest areas in East Bay hills -->
-  <ellipse cx="680" cy="500" rx="50" ry="80" fill="#2E7D32" opacity="0.4"/>
-
-  <!-- Forest areas in Peninsula (Purisima Creek area) -->
-  <ellipse cx="120" cy="600" rx="40" ry="60" fill="#2E7D32" opacity="0.4"/>
-
-  <!-- Urban areas - subtle gray tint -->
-  <!-- San Francisco -->
-  <ellipse cx="280" cy="400" rx="40" ry="50" fill="#90A4AE" opacity="0.3"/>
-
-  <!-- Oakland/Berkeley -->
-  <ellipse cx="580" cy="420" rx="50" ry="60" fill="#90A4AE" opacity="0.3"/>
-
-  <!-- San Jose area -->
-  <ellipse cx="400" cy="900" rx="80" ry="60" fill="#90A4AE" opacity="0.2"/>
-
-  <!-- Decorative elements -->
-  <!-- Alcatraz Island -->
-  <ellipse cx="340" cy="380" rx="8" ry="5" fill="#A1887F"/>
+  <!-- ISLANDS -->
+  <!-- Alcatraz -->
+  <ellipse cx="390" cy="340" rx="8" ry="5" fill="#8D6E63"/>
 
   <!-- Angel Island -->
-  <ellipse cx="380" cy="340" rx="15" ry="10" fill="#8BC34A" stroke="#689F38" stroke-width="1"/>
+  <ellipse cx="440" cy="300" rx="18" ry="12" fill="#81C784" stroke="#4CAF50" stroke-width="1"/>
 
   <!-- Treasure Island -->
-  <ellipse cx="420" cy="420" rx="10" ry="6" fill="#8BC34A" stroke="#689F38" stroke-width="1"/>
+  <ellipse cx="460" cy="380" rx="12" ry="8" fill="#81C784" stroke="#4CAF50" stroke-width="1"/>
+
+  <!-- FOREST/PARK AREAS (darker green patches) -->
+  <!-- Muir Woods / Mt Tam area -->
+  <ellipse cx="280" cy="280" rx="50" ry="35" fill="#2E7D32" opacity="0.4"/>
+
+  <!-- East Bay Hills -->
+  <ellipse cx="620" cy="400" rx="40" ry="100" fill="#2E7D32" opacity="0.3"/>
+
+  <!-- Peninsula Redwoods -->
+  <ellipse cx="180" cy="600" rx="35" ry="80" fill="#2E7D32" opacity="0.3"/>
+
+  <!-- URBAN AREAS (subtle gray) -->
+  <!-- San Francisco -->
+  <ellipse cx="340" cy="420" rx="50" ry="60" fill="#78909C" opacity="0.2"/>
+
+  <!-- Oakland/Berkeley -->
+  <ellipse cx="540" cy="360" rx="45" ry="70" fill="#78909C" opacity="0.2"/>
+
+  <!-- San Jose -->
+  <ellipse cx="400" cy="760" rx="60" ry="40" fill="#78909C" opacity="0.15"/>
+
+  <!-- Subtle coastline highlight on Pacific side -->
+  <path d="
+    M 0,300 L 50,320 L 100,310 L 140,340 L 180,330 L 200,360 L 240,350 L 280,380
+  " fill="none" stroke="#FFEB3B" stroke-width="2" opacity="0.3"/>
+
+  <path d="
+    M 0,380 L 60,400 L 100,390 L 140,420 L 180,400 L 220,440 L 260,420 L 300,460 L 340,440 L 380,480
+  " fill="none" stroke="#FFEB3B" stroke-width="2" opacity="0.3"/>
 </svg>
