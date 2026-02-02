@@ -7,6 +7,7 @@ import { Location, AgeLevel, QuizData, SortingData } from '@/types';
 import { getContent } from '@/utils/ageContent';
 import { ActivityQuiz } from './ActivityQuiz';
 import { ActivitySorting } from './ActivitySorting';
+import { CoralDialogue } from './CoralDialogue';
 
 type Tab = 'discover' | 'explore' | 'play';
 
@@ -118,6 +119,9 @@ function LocationPanelContent({
         <div className="flex-1 overflow-y-auto p-6">
           {activeTab === 'discover' && (
             <div className="space-y-6">
+              {/* Coral's intro */}
+              <CoralDialogue message={content.coralIntro} variant="speech" />
+
               <section>
                 <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-2">
                   What is this place?
@@ -241,6 +245,18 @@ function LocationPanelContent({
                 </motion.div>
               ) : (
                 <>
+                  {/* Coral's activity intro */}
+                  <div className="mb-4">
+                    <CoralDialogue
+                      message={{
+                        k2: "Yay! Game time! Let's play and learn!",
+                        grades35: "Ready for a challenge? This activity will test what you've learned!",
+                        grades68: "Apply your knowledge with this interactive activity.",
+                      }}
+                      variant="excited"
+                    />
+                  </div>
+
                   <div className="text-center mb-4">
                     <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-1">
                       {content.activity!.title}
