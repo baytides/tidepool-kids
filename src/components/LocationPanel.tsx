@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
 
@@ -9,6 +9,11 @@ type Tab = 'discover' | 'explore' | 'play';
 export function LocationPanel() {
   const { selectedLocation, selectLocation, collectCreature, collectedCreatures } = useAppStore();
   const [activeTab, setActiveTab] = useState<Tab>('discover');
+
+  // Reset tab state when location changes
+  useEffect(() => {
+    setActiveTab('discover');
+  }, [selectedLocation?.id]);
 
   if (!selectedLocation) return null;
 
@@ -32,7 +37,7 @@ export function LocationPanel() {
           <button
             onClick={() => selectLocation(null)}
             className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-            aria-label="Close panel"
+            aria-label="Close location details"
           >
             ✕
           </button>
@@ -116,6 +121,7 @@ export function LocationPanel() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => collectCreature(creature.id)}
+                      aria-label={isCollected ? `${creature.name} - collected` : `Collect ${creature.name}`}
                       className={`p-4 rounded-xl text-left transition-colors ${
                         isCollected
                           ? 'bg-green-50 border-2 border-green-200'
