@@ -1,4 +1,4 @@
-import { Location, QuizData } from '@/types';
+import { Location, QuizData, SortingData } from '@/types';
 
 export const locations: Location[] = [
   // ===========================
@@ -1718,6 +1718,35 @@ export const locations: Location[] = [
         k2: 'K-ESS3-3',
         grades35: '5-ESS3-1',
         grades68: 'MS-ESS3-3',
+      },
+      activity: {
+        type: 'sorting',
+        title: 'Compost Sorting',
+        instructions: {
+          k2: 'Put items in the right bin!',
+          grades35: 'Sort items into the correct bins!',
+          grades68: 'Categorize waste items by proper disposal method.',
+        },
+        points: 25,
+        badge: 'sorting-star',
+        data: {
+          bins: [
+            { id: 'compost', label: 'Compost', icon: '🌱' },
+            { id: 'recycle', label: 'Recycle', icon: '♻️' },
+            { id: 'landfill', label: 'Landfill', icon: '🗑️' },
+          ],
+          items: [
+            { id: 'banana-peel', label: 'Banana Peel', emoji: '🍌', correctBin: 'compost' },
+            { id: 'apple-core', label: 'Apple Core', emoji: '🍎', correctBin: 'compost' },
+            { id: 'coffee-grounds', label: 'Coffee Grounds', emoji: '☕', correctBin: 'compost' },
+            { id: 'leaves', label: 'Leaves', emoji: '🍂', correctBin: 'compost' },
+            { id: 'plastic-bottle', label: 'Plastic Bottle', emoji: '🧴', correctBin: 'recycle' },
+            { id: 'aluminum-can', label: 'Aluminum Can', emoji: '🥫', correctBin: 'recycle' },
+            { id: 'cardboard', label: 'Cardboard', emoji: '📦', correctBin: 'recycle' },
+            { id: 'styrofoam', label: 'Styrofoam', emoji: '📦', correctBin: 'landfill' },
+            { id: 'chip-bag', label: 'Chip Bag', emoji: '🍟', correctBin: 'landfill' },
+          ],
+        } as SortingData,
       },
     },
   },
