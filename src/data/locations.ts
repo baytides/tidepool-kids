@@ -1167,4 +1167,198 @@ export const locations: Location[] = [
       },
     },
   },
+  {
+    id: 'hetch-hetchy',
+    name: 'Hetch Hetchy Reservoir',
+    type: 'infrastructure',
+    category: 'Water Supply',
+    icon: '🏔️',
+    color: '#0277bd',
+    coordinates: [-119.7871, 37.9485],
+    content: {
+      title: 'Hetch Hetchy Reservoir',
+      tagline: {
+        k2: 'Mountain water for the city!',
+        grades35: 'Where SF\'s drinking water comes from!',
+        grades68: 'A gravity-fed water supply system from Yosemite.',
+      },
+      description: {
+        k2: 'Water from snowy mountains flows all the way to San Francisco!',
+        grades35: 'San Francisco\'s drinking water comes from snowmelt in Yosemite, traveling 167 miles through pipes to reach your tap!',
+        grades68: 'The Hetch Hetchy system delivers 265 million gallons daily via gravity, requiring no chemical treatment due to watershed protection.',
+      },
+      whyItMatters: {
+        k2: 'Clean mountain water keeps us healthy!',
+        grades35: 'Protecting the mountain forests keeps our water clean. It\'s nature\'s own water filter!',
+        grades68: 'Watershed protection eliminates filtration requirements, demonstrating the economic value of natural capital.',
+      },
+      funFacts: [
+        {
+          k2: 'The water travels in pipes for 167 miles!',
+          grades35: 'Water from Hetch Hetchy takes 1-2 days to reach your tap, traveling through tunnels drilled through mountains!',
+          grades68: 'The system includes 170 miles of tunnels, some bored through solid granite at elevations exceeding 7,000 feet.',
+        },
+        {
+          k2: 'SF water is so clean it doesn\'t need filtering!',
+          grades35: 'SF is one of only a few cities that doesn\'t need to filter its drinking water - it\'s that clean!',
+          grades68: 'San Francisco holds one of only 5 US unfiltered surface water supplies, relying on UV disinfection alone.',
+        },
+      ],
+      howItWorks: [
+        {
+          step: 1,
+          title: 'Snow Falls',
+          description: {
+            k2: 'Snow falls on the mountains and melts in spring.',
+            grades35: 'Winter snow in the Sierra Nevada melts and fills the reservoir.',
+            grades68: 'Snowpack serves as natural storage, with spring melt filling the 360,000 acre-foot reservoir.',
+          },
+        },
+        {
+          step: 2,
+          title: 'Gravity Flow',
+          description: {
+            k2: 'Water flows downhill through big pipes.',
+            grades35: 'Water flows downhill through tunnels and pipes - no pumps needed!',
+            grades68: 'Gravity conveyance eliminates pumping energy costs, with system head exceeding 1,000 feet.',
+          },
+        },
+        {
+          step: 3,
+          title: 'UV Treatment',
+          description: {
+            k2: 'Special lights kill any tiny germs.',
+            grades35: 'UV light zaps any remaining germs before the water reaches your home.',
+            grades68: 'Ultraviolet disinfection achieves 4-log inactivation of Cryptosporidium without chemical residuals.',
+          },
+        },
+        {
+          step: 4,
+          title: 'To Your Tap',
+          description: {
+            k2: 'Clean water comes out when you turn on the faucet!',
+            grades35: 'The water arrives at local reservoirs and then to your home.',
+            grades68: 'Terminal reservoirs buffer demand fluctuations before distribution to 2.7 million customers.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Your water comes from real mountains with snow!',
+        grades35: 'Every glass of water you drink came from mountains 167 miles away!',
+        grades68: 'This gravity-fed system demonstrates sustainable water infrastructure design.',
+      },
+      takeAction: {
+        k2: 'Turn off the water while brushing your teeth!',
+        grades35: 'Take shorter showers and fix dripping faucets to save water.',
+        grades68: 'Support watershed protection policies and water conservation programs.',
+      },
+      principles: {
+        primary: 'II',
+        secondary: ['III'],
+        concepts: ['II-A', 'II-B', 'III-A'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
+    id: 'sf-compost',
+    name: 'SF Compost Facility',
+    type: 'infrastructure',
+    category: 'Composting',
+    icon: '🪱',
+    color: '#6d4c41',
+    coordinates: [-122.3836, 37.5072],
+    content: {
+      title: 'SF Compost Facility',
+      tagline: {
+        k2: 'Turning banana peels into garden gold!',
+        grades35: 'Where food scraps become super soil!',
+        grades68: 'Large-scale organics processing for municipal composting.',
+      },
+      description: {
+        k2: 'Your food scraps go here and become food for plants!',
+        grades35: 'San Francisco\'s food scraps and yard waste come here to become compost - rich soil that helps plants grow.',
+        grades68: 'This facility processes 400+ tons of organics daily using aerated static pile composting, diverting material from landfills.',
+      },
+      whyItMatters: {
+        k2: 'Composting means less smelly trash and happy gardens!',
+        grades35: 'Composting keeps food waste out of landfills where it would create harmful gases.',
+        grades68: 'Organics diversion reduces methane emissions (25x more potent than CO2) while producing valuable soil amendments.',
+      },
+      funFacts: [
+        {
+          k2: 'The compost gets really hot - like a fever!',
+          grades35: 'Compost piles can reach 160°F - hot enough to kill weed seeds and germs!',
+          grades68: 'Thermophilic decomposition reaches 65°C, exceeding pathogen reduction requirements.',
+        },
+        {
+          k2: 'Tiny bugs and worms do all the work!',
+          grades35: 'Billions of tiny organisms - bacteria, fungi, and worms - do the work of turning scraps into soil.',
+          grades68: 'Microbial communities drive decomposition, with bacterial populations exceeding 10 billion per gram.',
+        },
+      ],
+      howItWorks: [
+        {
+          step: 1,
+          title: 'Collection',
+          description: {
+            k2: 'Green bins get picked up by trucks.',
+            grades35: 'Trucks collect green bins from homes and businesses across the city.',
+            grades68: 'Source-separated organics are collected via dedicated fleet and delivered for processing.',
+          },
+        },
+        {
+          step: 2,
+          title: 'Grinding',
+          description: {
+            k2: 'Big machines chop everything into small pieces.',
+            grades35: 'Giant grinders break down the material into small, even pieces.',
+            grades68: 'Mechanical processing achieves particle size reduction for optimal microbial access.',
+          },
+        },
+        {
+          step: 3,
+          title: 'Composting',
+          description: {
+            k2: 'The pile gets warm and the scraps turn into dirt.',
+            grades35: 'Material is arranged in large piles where heat and microbes transform it.',
+            grades68: 'Aerated static pile composting maintains aerobic conditions for 45+ days.',
+          },
+        },
+        {
+          step: 4,
+          title: 'Curing & Screening',
+          description: {
+            k2: 'Finished compost is sifted and bagged.',
+            grades35: 'The finished compost is screened to remove any remaining large pieces.',
+            grades68: 'Cured material is screened to particle size specifications for various agricultural uses.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Your banana peels become food for tomatoes!',
+        grades35: 'What happens to your food scraps? Let\'s find out!',
+        grades68: 'This facility represents cutting-edge urban organics management.',
+      },
+      takeAction: {
+        k2: 'Put food scraps in the green bin, not the trash!',
+        grades35: 'Learn what goes in the green bin and help your family compost correctly.',
+        grades68: 'Advocate for expanded organics collection and support community composting initiatives.',
+      },
+      principles: {
+        primary: 'IV',
+        secondary: ['II'],
+        concepts: ['IV-A', 'IV-B', 'II-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
 ];
