@@ -601,6 +601,178 @@ export const locations: Location[] = [
       },
     },
   },
+  {
+    id: 'muir-woods',
+    name: 'Muir Woods',
+    type: 'habitat',
+    category: 'Forest',
+    icon: '🌲',
+    color: '#2e7d32',
+    coordinates: [-122.5697, 37.8912],
+    content: {
+      title: 'Muir Woods',
+      tagline: {
+        k2: 'Trees taller than buildings!',
+        grades35: 'Walk among ancient giants!',
+        grades68: 'An old-growth coastal redwood forest ecosystem.',
+      },
+      description: {
+        k2: 'These trees are SO tall! Some have been growing for 1,000 years!',
+        grades35: 'Coast redwoods are the tallest living things on Earth. This forest has trees over 250 feet tall!',
+        grades68: 'Sequoia sempervirens in Muir Woods represent remnant old-growth forest, with individual trees exceeding 1,000 years of age.',
+      },
+      whyItMatters: {
+        k2: 'Big trees clean our air and give animals homes!',
+        grades35: 'Old forests store carbon, clean the air, and provide habitat for thousands of species.',
+        grades68: 'Old-growth redwoods store more carbon per hectare than any other ecosystem and harvest fog to sustain summer water flow.',
+      },
+      funFacts: [
+        {
+          k2: 'Redwoods drink water from fog with their needles!',
+          grades35: 'Redwood trees can "drink" fog through their leaves - they don\'t just use their roots!',
+          grades68: 'Fog drip contributes up to 40% of redwood water intake during dry summer months via foliar uptake.',
+        },
+        {
+          k2: 'A salamander lives only in these forests!',
+          grades35: 'The clouded salamander lives its whole life up in the redwood branches!',
+          grades68: 'Arboreal salamanders complete their entire life cycle in the canopy, never touching the forest floor.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'banana-slug',
+          name: 'Banana Slug',
+          emoji: '🐌',
+          fact: {
+            k2: 'They eat dead leaves to help the forest!',
+            grades35: 'Banana slugs are nature\'s recyclers - they eat dead plants and turn them into soil nutrients.',
+            grades68: 'Ariolimax columbianus accelerates decomposition, playing a crucial role in forest nutrient cycling.',
+          },
+        },
+        {
+          id: 'spotted-owl',
+          name: 'Northern Spotted Owl',
+          emoji: '🦉',
+          fact: {
+            k2: 'They hunt at night and sleep in the day!',
+            grades35: 'Spotted owls need old forests with big trees to build their nests.',
+            grades68: 'Strix occidentalis caurina is a threatened species that requires late-successional forest habitat.',
+          },
+        },
+        {
+          id: 'coast-redwood',
+          name: 'Coast Redwood',
+          emoji: '🌲',
+          fact: {
+            k2: 'Some trees here are older than castles!',
+            grades35: 'Coast redwoods can live over 2,000 years and grow 350+ feet tall!',
+            grades68: 'Sequoia sempervirens achieves maximum heights through hydraulic limits and fog-water supplementation.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Look UP! These trees are like giant green skyscrapers!',
+        grades35: 'These trees were here before Columbus sailed to America!',
+        grades68: 'This remnant old-growth forest contains irreplaceable genetic diversity.',
+      },
+      takeAction: {
+        k2: 'Stay on the trail so we don\'t hurt the tree roots!',
+        grades35: 'Stick to boardwalks and trails - redwood roots are shallow and easily damaged.',
+        grades68: 'Support land trusts acquiring and protecting remaining old-growth stands.',
+      },
+      principles: {
+        primary: 'I',
+        secondary: ['III', 'IV'],
+        concepts: ['I-A', 'I-B', 'III-B', 'IV-A'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
+  {
+    id: 'redwood-regional',
+    name: 'Redwood Regional Park',
+    type: 'habitat',
+    category: 'Forest',
+    icon: '🦎',
+    color: '#558b2f',
+    coordinates: [-122.1638, 37.8160],
+    content: {
+      title: 'Redwood Regional Park',
+      tagline: {
+        k2: 'Baby redwoods growing up!',
+        grades35: 'A second-chance forest in the East Bay!',
+        grades68: 'A regenerated redwood forest demonstrating ecological resilience.',
+      },
+      description: {
+        k2: 'These redwood trees are growing back after people cut down the old ones long ago.',
+        grades35: 'This forest was completely logged 150 years ago, but redwoods can sprout from stumps! The forest grew back.',
+        grades68: 'This second-growth forest demonstrates redwood resilience; logged in the 1850s, it regenerated from stump sprouts and now supports diverse wildlife.',
+      },
+      whyItMatters: {
+        k2: 'Forests can grow back if we give them a chance!',
+        grades35: 'This forest proves that damaged ecosystems can recover. It gives us hope for the future!',
+        grades68: 'Second-growth forests sequester carbon rapidly and can develop old-growth characteristics within 200-300 years.',
+      },
+      funFacts: [
+        {
+          k2: 'These trees grew from the stumps of the old trees!',
+          grades35: 'When redwoods are cut down, new trees can sprout right from the stump!',
+          grades68: 'Redwood basal burls contain dormant buds that activate after disturbance, enabling vegetative reproduction.',
+        },
+        {
+          k2: 'Rainbow trout swim in the streams here!',
+          grades35: 'Redwood Creek has steelhead trout that swim all the way from the ocean!',
+          grades68: 'Anadromous steelhead use Redwood Creek as spawning habitat, benefiting from shade and stable water temperatures.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'steelhead-trout',
+          name: 'Steelhead Trout',
+          emoji: '🐟',
+          fact: {
+            k2: 'They swim from the ocean to have babies in streams!',
+            grades35: 'Steelhead trout are born in streams, swim to the ocean, then return to have their own babies.',
+            grades68: 'Oncorhynchus mykiss irideus exhibits anadromous life history, with individuals returning to natal streams via olfactory imprinting.',
+          },
+        },
+        {
+          id: 'california-newt',
+          name: 'California Newt',
+          emoji: '🦎',
+          fact: {
+            k2: 'Their orange belly warns "Don\'t eat me!"',
+            grades35: 'California newts are poisonous! Their bright orange belly warns predators to stay away.',
+            grades68: 'Taricha torosa produces tetrodotoxin, with toxicity levels varying geographically in response to garter snake predation pressure.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'This whole forest grew back from stumps! Nature is amazing!',
+        grades35: 'People cut down all the old trees, but look - the forest came back!',
+        grades68: 'This regenerated ecosystem demonstrates remarkable ecological resilience.',
+      },
+      takeAction: {
+        k2: 'Don\'t pick the mushrooms or flowers!',
+        grades35: 'Leave plants, mushrooms, and animals where you find them.',
+        grades68: 'Volunteer for habitat restoration projects and support watershed protection efforts.',
+      },
+      principles: {
+        primary: 'III',
+        secondary: ['I'],
+        concepts: ['III-A', 'III-B', 'I-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
   // ===========================
   // INFRASTRUCTURE
   // ===========================
