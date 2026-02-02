@@ -47,6 +47,7 @@ export function Map() {
         el.style.justifyContent = 'center';
         el.style.transition = 'transform 0.2s, box-shadow 0.2s';
         el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+        el.style.transformOrigin = 'center center';
 
         el.addEventListener('mouseenter', () => {
           el.style.transform = 'scale(1.15)';
