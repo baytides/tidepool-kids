@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
 import { AgeLevelToggle } from './AgeLevelToggle';
+import { BadgeDisplay } from './BadgeDisplay';
 
 export function Header() {
   const { visitedLocations, collectedCreatures, totalPoints, currentStreak, recordVisit } = useAppStore();
@@ -66,6 +67,9 @@ export function Header() {
         <div className="flex items-center gap-3">
           {/* Age level toggle */}
           <AgeLevelToggle />
+
+          {/* Badge display */}
+          <BadgeDisplay />
 
           {/* Points with animation */}
           <div className="relative">

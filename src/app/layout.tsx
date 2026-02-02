@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { nunito, fredoka } from './fonts';
 import './globals.css';
 import { AgeSelectorModal } from '@/components/AgeSelectorModal';
+import { AchievementToast } from '@/components/AchievementToast';
 
 export const metadata: Metadata = {
   title: 'Tide Pool Kids - Explore the Bay Area',
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         {children}
         <AgeSelectorModal />
+        <AchievementToast />
       </body>
     </html>
   );
