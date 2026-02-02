@@ -19,7 +19,7 @@ export function Sidebar() {
   return (
     <aside aria-label="Location navigation" className="w-80 bg-white border-l border-gray-200 flex flex-col h-full overflow-hidden">
       <div className="p-4 border-b border-gray-100">
-        <h2 className="font-[family-name:var(--font-fredoka)] text-lg text-[--color-navy]">
+        <h2 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)]">
           Places to Explore
         </h2>
       </div>
@@ -80,7 +80,7 @@ function LocationButton({
         onClick={() => onSelect(location)}
         className={`w-full flex items-center gap-3 p-3 rounded-xl text-left transition-colors focus-visible:ring-2 focus-visible:ring-[--color-aqua] focus-visible:outline-none ${
           isSelected
-            ? 'bg-[--color-aqua] text-white'
+            ? 'bg-[var(--color-aqua)] text-white'
             : 'hover:bg-gray-50'
         }`}
       >

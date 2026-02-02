@@ -18,7 +18,7 @@ export function Header() {
             width={40}
             height={40}
           />
-          <span className="font-[family-name:var(--font-fredoka)] text-lg font-semibold text-[--color-navy]">
+          <span className="font-[family-name:var(--font-fredoka)] text-lg font-semibold text-[var(--color-navy)]">
             Tide Pool Kids
           </span>
         </Link>
@@ -34,7 +34,7 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <motion.div
-            className="flex items-center gap-1 px-3 py-1 bg-[--color-sand] rounded-full"
+            className="flex items-center gap-1 px-3 py-1 bg-[var(--color-sand)] rounded-full"
             whileHover={{ scale: 1.05 }}
             aria-label={`${visitedLocations.length} places visited`}
           >
@@ -42,7 +42,7 @@ export function Header() {
             <span className="text-sm font-medium">{visitedLocations.length}</span>
           </motion.div>
           <motion.div
-            className="flex items-center gap-1 px-3 py-1 bg-[--color-sand] rounded-full"
+            className="flex items-center gap-1 px-3 py-1 bg-[var(--color-sand)] rounded-full"
             whileHover={{ scale: 1.05 }}
             aria-label={`${collectedCreatures.length} creatures collected`}
           >

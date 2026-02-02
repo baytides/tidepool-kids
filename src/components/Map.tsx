@@ -115,7 +115,7 @@ export function Map() {
               transition={{ repeat: Infinity, duration: 2 }}
             />
             <div>
-              <h2 className="font-[family-name:var(--font-fredoka)] text-xl text-[--color-navy]">
+              <h2 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)]">
                 Hi, I&apos;m Coral!
               </h2>
               <p className="text-sm text-gray-600">

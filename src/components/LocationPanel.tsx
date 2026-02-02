@@ -70,7 +70,7 @@ function LocationPanelContent({
               >
                 {selectedLocation.category}
               </span>
-              <h2 className="font-[family-name:var(--font-fredoka)] text-2xl text-[--color-navy]">
+              <h2 className="font-[family-name:var(--font-fredoka)] text-2xl text-[var(--color-navy)]">
                 {content.title}
               </h2>
               <p className="text-gray-500 italic">{content.tagline}</p>
@@ -100,14 +100,14 @@ function LocationPanelContent({
           {activeTab === 'discover' && (
             <div className="space-y-6">
               <section>
-                <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[--color-navy] mb-2">
+                <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-2">
                   What is this place?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">{content.description}</p>
               </section>
 
               <section>
-                <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[--color-navy] mb-2">
+                <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-2">
                   Why does it matter?
                 </h3>
                 <p className="text-gray-700 leading-relaxed">{content.whyItMatters}</p>
@@ -129,7 +129,7 @@ function LocationPanelContent({
 
           {activeTab === 'explore' && hasCreatures && (
             <div>
-              <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[--color-navy] mb-4">
+              <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-4">
                 Meet the Creatures
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -163,7 +163,7 @@ function LocationPanelContent({
 
           {activeTab === 'explore' && hasSteps && (
             <div>
-              <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[--color-navy] mb-4">
+              <h3 className="font-[family-name:var(--font-fredoka)] text-lg text-[var(--color-navy)] mb-4">
                 How It Works
               </h3>
               <div className="space-y-4">
@@ -175,11 +175,11 @@ function LocationPanelContent({
                     transition={{ delay: index * 0.1 }}
                     className="flex gap-4 p-4 bg-blue-50 rounded-xl"
                   >
-                    <span className="w-8 h-8 flex items-center justify-center bg-[--color-aqua] text-white font-bold rounded-full flex-shrink-0">
+                    <span className="w-8 h-8 flex items-center justify-center bg-[var(--color-aqua)] text-white font-bold rounded-full flex-shrink-0">
                       {step.step}
                     </span>
                     <div>
-                      <h4 className="font-semibold text-[--color-navy]">{step.title}</h4>
+                      <h4 className="font-semibold text-[var(--color-navy)]">{step.title}</h4>
                       <p className="text-sm text-gray-600">{step.description}</p>
                     </div>
                   </motion.div>
@@ -191,14 +191,14 @@ function LocationPanelContent({
           {activeTab === 'play' && hasActivity && (
             <div className="text-center py-8">
               <span className="text-6xl mb-4 block">🎮</span>
-              <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[--color-navy] mb-2">
+              <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
                 {content.activity!.title}
               </h3>
               <p className="text-gray-600 mb-6">{content.activity!.instructions}</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-[--color-pink] text-white font-semibold rounded-full"
+                className="px-6 py-3 bg-[var(--color-pink)] text-white font-semibold rounded-full"
               >
                 Coming Soon!
               </motion.button>
@@ -226,7 +226,7 @@ function TabButton({
       onClick={() => onClick(tab)}
       className={`px-4 py-2 rounded-full font-medium text-sm transition-colors ${
         active === tab
-          ? 'bg-[--color-navy] text-white'
+          ? 'bg-[var(--color-navy)] text-white'
           : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
       }`}
     >
