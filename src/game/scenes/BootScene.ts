@@ -7,15 +7,17 @@ export class BootScene extends Scene {
   }
 
   preload() {
+    // Display loading progress
+    const { width, height } = this.scale;
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(240, 270, 320, 50);
+    progressBox.fillRect(width / 2 - 160, height / 2 - 25, 320, 50);
 
     this.load.on('progress', (value: number) => {
       progressBar.clear();
       progressBar.fillStyle(0x26c6da, 1);
-      progressBar.fillRect(250, 280, 300 * value, 30);
+      progressBar.fillRect(width / 2 - 150, height / 2 - 15, 300 * value, 30);
     });
 
     this.load.on('complete', () => {
@@ -23,12 +25,20 @@ export class BootScene extends Scene {
       progressBox.destroy();
     });
 
-    // Placeholder assets - will be replaced in Phase 2
-    this.load.image('bay-area-map', '/assets/game/bay-area-map.png');
-    this.load.image('node-locked', '/assets/game/node-locked.png');
-    this.load.image('node-available', '/assets/game/node-available.png');
-    this.load.image('node-complete', '/assets/game/node-complete.png');
-    this.load.image('coral-character', '/assets/game/coral.png');
+    // Load map background
+    this.load.svg('bay-area-map', '/assets/game/bay-area-map.svg', { width: 800, height: 900 });
+
+    // Load node states
+    this.load.svg('node-locked', '/assets/game/node-locked.svg', { width: 64, height: 64 });
+    this.load.svg('node-available', '/assets/game/node-available.svg', { width: 64, height: 64 });
+    this.load.svg('node-complete', '/assets/game/node-complete.svg', { width: 64, height: 64 });
+    this.load.svg('node-progress', '/assets/game/node-progress.svg', { width: 64, height: 64 });
+
+    // Load character
+    this.load.svg('coral', '/assets/game/coral.svg', { width: 64, height: 64 });
+
+    // Load path element
+    this.load.svg('path-dot', '/assets/game/path-dot.svg', { width: 16, height: 16 });
   }
 
   create() {
