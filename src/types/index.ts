@@ -1,32 +1,68 @@
+/**
+ * Age level for content adaptation
+ * - k2: Kindergarten through 2nd grade (ages 5-8)
+ * - grades35: 3rd through 5th grade (ages 8-11)
+ * - grades68: 6th through 8th grade (ages 11-14)
+ */
+export type AgeLevel = 'k2' | 'grades35' | 'grades68';
+
+/**
+ * Content that varies by age level
+ */
+export interface AgeContent {
+  k2: string;
+  grades35: string;
+  grades68: string;
+}
+
 export interface Creature {
   id: string;
   name: string;
   emoji: string;
-  fact: string;
+  fact: AgeContent;
+  habitat?: string;
+  diet?: AgeContent;
+  coolFeature?: AgeContent;
 }
 
 export interface Step {
   step: number;
   title: string;
-  description: string;
+  description: AgeContent;
+  icon?: string;
 }
 
 export interface Activity {
-  type: 'quiz' | 'matching' | 'sorting' | 'spotting';
+  type: 'spotter' | 'matching' | 'sorting' | 'quiz' | 'sequencer' | 'data';
   title: string;
-  instructions: string;
+  instructions: AgeContent;
   data: unknown;
+  points: number;
+  badge?: string;
 }
 
 export interface LocationContent {
   title: string;
-  tagline: string;
-  description: string;
-  whyItMatters: string;
-  didYouKnow: string;
+  tagline: AgeContent;
+  description: AgeContent;
+  whyItMatters: AgeContent;
+  funFacts: AgeContent[];
   creatures?: Creature[];
   howItWorks?: Step[];
   activity?: Activity;
+  coralIntro: AgeContent;
+  takeAction: AgeContent;
+  // California EP&C alignment
+  principles: {
+    primary: 'I' | 'II' | 'III' | 'IV' | 'V';
+    secondary?: ('I' | 'II' | 'III' | 'IV' | 'V')[];
+    concepts: string[];
+  };
+  standards: {
+    k2?: string;
+    grades35?: string;
+    grades68?: string;
+  };
 }
 
 export interface Location {
