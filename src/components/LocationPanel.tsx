@@ -3,13 +3,15 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
-import { Location, AgeLevel } from '@/types';
+import { Location, AgeLevel, QuizData, SortingData } from '@/types';
 import { getContent } from '@/utils/ageContent';
+import { ActivityQuiz } from './ActivityQuiz';
+import { ActivitySorting } from './ActivitySorting';
 
 type Tab = 'discover' | 'explore' | 'play';
 
 export function LocationPanel() {
-  const { selectedLocation, selectLocation, collectCreature, collectedCreatures, ageLevel } = useAppStore();
+  const { selectedLocation, selectLocation, collectCreature, collectedCreatures, ageLevel, addPoints } = useAppStore();
 
   if (!selectedLocation) return null;
 
@@ -22,6 +24,7 @@ export function LocationPanel() {
       collectCreature={collectCreature}
       collectedCreatures={collectedCreatures}
       ageLevel={ageLevel}
+      addPoints={addPoints}
     />
   );
 }
@@ -32,14 +35,26 @@ function LocationPanelContent({
   collectCreature,
   collectedCreatures,
   ageLevel,
+  addPoints,
 }: {
   selectedLocation: Location;
   selectLocation: (location: Location | null) => void;
   collectCreature: (creatureId: string) => void;
   collectedCreatures: string[];
   ageLevel: AgeLevel | null;
+  addPoints: (points: number) => void;
 }) {
   const [activeTab, setActiveTab] = useState<Tab>('discover');
+  const [activityCompleted, setActivityCompleted] = useState(false);
+  const [activityScore, setActivityScore] = useState<{ correct: number; total: number } | null>(null);
+
+  const handleActivityComplete = (correct: number, total: number) => {
+    setActivityCompleted(true);
+    setActivityScore({ correct, total });
+    // Award points: 5 per correct answer + 10 bonus for perfect
+    const points = correct * 5 + (correct === total ? 10 : 0);
+    addPoints(points);
+  };
 
   const { content } = selectedLocation;
   const hasCreatures = content.creatures && content.creatures.length > 0;
@@ -195,19 +210,68 @@ function LocationPanelContent({
           )}
 
           {activeTab === 'play' && hasActivity && (
-            <div className="text-center py-8">
-              <span className="text-6xl mb-4 block">🎮</span>
-              <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
-                {content.activity!.title}
-              </h3>
-              <p className="text-gray-600 mb-6">{getContent(content.activity!.instructions, ageLevel)}</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-[var(--color-pink)] text-white font-semibold rounded-full"
-              >
-                Coming Soon!
-              </motion.button>
+            <div>
+              {activityCompleted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8"
+                >
+                  <div className="text-6xl mb-4">
+                    {activityScore?.correct === activityScore?.total ? '🏆' : '⭐'}
+                  </div>
+                  <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
+                    Activity Complete!
+                  </h3>
+                  <p className="text-gray-600 mb-2">
+                    You scored {activityScore?.correct} out of {activityScore?.total}
+                  </p>
+                  <p className="text-sm text-[var(--color-teal)] mb-4">
+                    +{(activityScore?.correct || 0) * 5 + (activityScore?.correct === activityScore?.total ? 10 : 0)} points earned!
+                  </p>
+                  <button
+                    onClick={() => {
+                      setActivityCompleted(false);
+                      setActivityScore(null);
+                    }}
+                    className="px-6 py-2 bg-[var(--color-teal)] text-white rounded-full font-medium hover:bg-[var(--color-teal)]/90"
+                  >
+                    Try Again
+                  </button>
+                </motion.div>
+              ) : (
+                <>
+                  <div className="text-center mb-4">
+                    <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-1">
+                      {content.activity!.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">{getContent(content.activity!.instructions, ageLevel)}</p>
+                  </div>
+
+                  {content.activity!.type === 'quiz' && (
+                    <ActivityQuiz
+                      data={content.activity!.data as QuizData}
+                      ageLevel={ageLevel}
+                      onComplete={handleActivityComplete}
+                    />
+                  )}
+
+                  {content.activity!.type === 'sorting' && (
+                    <ActivitySorting
+                      data={content.activity!.data as SortingData}
+                      ageLevel={ageLevel}
+                      onComplete={handleActivityComplete}
+                    />
+                  )}
+
+                  {content.activity!.type !== 'quiz' && content.activity!.type !== 'sorting' && (
+                    <div className="text-center py-8">
+                      <span className="text-4xl mb-4 block">🎮</span>
+                      <p className="text-gray-500">This activity type is coming soon!</p>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           )}
         </div>
