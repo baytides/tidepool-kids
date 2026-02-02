@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { nunito, fredoka } from './fonts';
 import './globals.css';
+import { AgeSelectorModal } from '@/components/AgeSelectorModal';
 
 export const metadata: Metadata = {
   title: 'Tide Pool Kids - Explore the Bay Area',
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${nunito.variable} ${fredoka.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AgeSelectorModal />
+      </body>
     </html>
   );
 }
