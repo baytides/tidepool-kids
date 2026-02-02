@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,24 +13,36 @@ export function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<{ [key: string]: mapboxgl.Marker }>({});
+  const [mapError, setMapError] = useState(false);
 
   const { selectedLocation, selectLocation, markVisited } = useAppStore();
 
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
 
+    // Check if we have a valid token
+    if (!mapboxgl.accessToken || mapboxgl.accessToken === 'your_mapbox_token_here') {
+      setMapError(true);
+      return;
+    }
+
     const bounds = new mapboxgl.LngLatBounds();
     locations.forEach((loc) => bounds.extend(loc.coordinates));
 
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      bounds: bounds,
-      fitBoundsOptions: { padding: 60 },
-    });
+    try {
+      map.current = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/light-v11',
+        bounds: bounds,
+        fitBoundsOptions: { padding: 60 },
+      });
 
-    map.current.on('load', () => {
-      locations.forEach((location) => {
+      map.current.on('error', () => {
+        setMapError(true);
+      });
+
+      map.current.on('load', () => {
+        locations.forEach((location) => {
         const el = document.createElement('button');
         el.className = 'map-marker';
         el.textContent = location.icon;
@@ -74,6 +86,10 @@ export function Map() {
       });
     });
 
+    } catch (error) {
+      setMapError(true);
+    }
+
     return () => {
       map.current?.remove();
       map.current = null;
@@ -96,10 +112,25 @@ export function Map() {
 
   return (
     <div className="relative w-full h-full">
-      <div ref={mapContainer} className="w-full h-full" />
+      {mapError ? (
+        // Fallback when map fails to load
+        <div className="w-full h-full bg-gradient-to-br from-blue-100 to-teal-50 flex items-center justify-center">
+          <div className="text-center p-8">
+            <div className="text-6xl mb-4">🗺️</div>
+            <h3 className="font-[family-name:var(--font-fredoka)] text-xl text-[var(--color-navy)] mb-2">
+              Map Loading...
+            </h3>
+            <p className="text-sm text-gray-600 max-w-xs">
+              Select a location from the sidebar to start exploring!
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div ref={mapContainer} className="w-full h-full" />
+      )}
 
       <AnimatePresence>
-        {!selectedLocation && (
+        {!selectedLocation && !mapError && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -128,3 +159,4 @@ export function Map() {
     </div>
   );
 }
+
