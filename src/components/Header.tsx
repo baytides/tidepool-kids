@@ -19,7 +19,7 @@ export function Header() {
             height={40}
           />
           <span className="font-[family-name:var(--font-fredoka)] text-lg font-semibold text-[--color-navy]">
-            Tidepool Kids
+            Tide Pool Kids
           </span>
         </Link>
 

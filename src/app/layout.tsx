@@ -3,7 +3,7 @@ import { nunito, fredoka } from './fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Tidepool Kids - Explore the Bay Area',
+  title: 'Tide Pool Kids - Explore the Bay Area',
   description: 'An interactive map for kids to explore San Francisco Bay Area nature and community.',
 };
 
