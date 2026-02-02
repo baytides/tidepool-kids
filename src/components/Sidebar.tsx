@@ -17,7 +17,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="w-80 bg-white border-l border-gray-200 flex flex-col h-full overflow-hidden">
+    <aside aria-label="Location navigation" className="w-80 bg-white border-l border-gray-200 flex flex-col h-full overflow-hidden">
       <div className="p-4 border-b border-gray-100">
         <h2 className="font-[family-name:var(--font-fredoka)] text-lg text-[--color-navy]">
           Places to Explore
@@ -78,7 +78,7 @@ function LocationButton({
     <motion.li whileHover={{ x: 4 }} whileTap={{ scale: 0.98 }}>
       <button
         onClick={() => onSelect(location)}
-        className={`w-full flex items-center gap-3 p-3 rounded-xl text-left transition-colors ${
+        className={`w-full flex items-center gap-3 p-3 rounded-xl text-left transition-colors focus-visible:ring-2 focus-visible:ring-[--color-aqua] focus-visible:outline-none ${
           isSelected
             ? 'bg-[--color-aqua] text-white'
             : 'hover:bg-gray-50'
@@ -95,7 +95,7 @@ function LocationButton({
           <div className="flex items-center gap-2">
             <span className="font-medium text-sm truncate">{location.name}</span>
             {isVisited && !isSelected && (
-              <span className="text-xs text-green-500">✓</span>
+              <span aria-label="Visited" className="text-xs text-green-500">✓</span>
             )}
           </div>
           <span className={`text-xs ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
