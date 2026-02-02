@@ -773,6 +773,97 @@ export const locations: Location[] = [
       },
     },
   },
+  {
+    id: 'aquarium-of-bay',
+    name: 'Aquarium of the Bay',
+    type: 'habitat',
+    category: 'Aquarium',
+    icon: '🐠',
+    color: '#0288d1',
+    coordinates: [-122.4117, 37.8087],
+    content: {
+      title: 'Aquarium of the Bay',
+      tagline: {
+        k2: 'Sharks swimming over your head!',
+        grades35: 'Walk through tunnels surrounded by Bay creatures!',
+        grades68: 'An immersive exhibit showcasing San Francisco Bay biodiversity.',
+      },
+      description: {
+        k2: 'Walk through clear tunnels while fish and sharks swim all around you!',
+        grades35: 'This aquarium focuses on animals that live right here in San Francisco Bay. You can walk through 300-foot tunnels surrounded by sharks, rays, and fish!',
+        grades68: 'Dedicated exclusively to local aquatic life, this facility maintains living exhibits of over 200 species native to the San Francisco Bay watershed.',
+      },
+      whyItMatters: {
+        k2: 'The aquarium teaches us about our Bay friends!',
+        grades35: 'Learning about Bay animals helps us understand why we need to protect their home.',
+        grades68: 'Public aquariums drive conservation awareness and support research on local species populations and threats.',
+      },
+      funFacts: [
+        {
+          k2: 'Sevengill sharks can be 9 feet long!',
+          grades35: 'The aquarium has sevengill sharks that grow up to 9 feet - they\'ve lived here for millions of years!',
+          grades68: 'Notorynchus cepedianus is a living fossil; the species has remained largely unchanged for 190 million years.',
+        },
+        {
+          k2: 'Bat rays flap their fins like birds fly!',
+          grades35: 'Bat rays "fly" through the water by flapping their fins like wings!',
+          grades68: 'Myliobatis californica uses oscillatory locomotion, with pectoral fin kinematics analogous to avian flight.',
+        },
+      ],
+      creatures: [
+        {
+          id: 'sevengill-shark',
+          name: 'Sevengill Shark',
+          emoji: '🦈',
+          fact: {
+            k2: 'They have 7 gills instead of 5 like most sharks!',
+            grades35: 'Sevengill sharks have an extra pair of gills. They\'re one of the oldest shark species alive!',
+            grades68: 'Sevengill sharks retain primitive characteristics including seven gill slits and lack a dorsal spine.',
+          },
+        },
+        {
+          id: 'bat-ray',
+          name: 'Bat Ray',
+          emoji: '🐟',
+          fact: {
+            k2: 'You can touch them in the touch pool!',
+            grades35: 'Bat rays are gentle and curious - they often approach divers!',
+            grades68: 'Bat rays use electroreception to detect buried invertebrate prey in sandy substrates.',
+          },
+        },
+        {
+          id: 'leopard-shark',
+          name: 'Leopard Shark',
+          emoji: '🦈',
+          fact: {
+            k2: 'They have cool spots like a leopard!',
+            grades35: 'Leopard sharks have beautiful spotted patterns that help them blend into the sandy bottom.',
+            grades68: 'Triakis semifasciata is the most common nearshore shark in California, with females aggregating in warm shallow waters.',
+          },
+        },
+      ],
+      coralIntro: {
+        k2: 'Wow! Look at all the fish swimming above us!',
+        grades35: 'These are all animals that live in our Bay! Let\'s learn about them!',
+        grades68: 'This facility specializes in local species conservation and education.',
+      },
+      takeAction: {
+        k2: 'Don\'t tap on the glass - it scares the fish!',
+        grades35: 'Be quiet and respectful - loud noises stress aquarium animals.',
+        grades68: 'Support sustainable seafood choices and organizations protecting Bay habitats.',
+      },
+      principles: {
+        primary: 'I',
+        secondary: ['V'],
+        concepts: ['I-A', 'I-B', 'V-A', 'V-B'],
+      },
+      standards: {
+        k2: 'K-ESS3-3',
+        grades35: '5-ESS3-1',
+        grades68: 'MS-ESS3-3',
+      },
+    },
+  },
   // ===========================
   // INFRASTRUCTURE
   // ===========================
